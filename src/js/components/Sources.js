@@ -1,6 +1,25 @@
 import React from 'react';
 import store from '../stores/store';
 import * as Actions from '../actions/naijActions';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {GridList, GridTile} from 'material-ui/GridList';
+
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    height: 'auto',
+  },
+};
+
 
 export default class Sources extends React.Component {
   constructor() {
@@ -24,17 +43,32 @@ export default class Sources extends React.Component {
   render() {
     if (this.state.sources) {
       const sourceNodes = this.state.sources.map(source => (
-        <div key={source.id}>
-          <div>{source.name}</div>
-          <div> {source.description}</div>
-          <div><a href={source.url} target="_blank">{source.url}</a></div>
-          <button onClick={
-            () => {
-             Actions.getArticles(source.id);
-            }
-          }>show</button>
-        </div>));
-      return (<div>{sourceNodes}</div>);
+        <Card className="card" key={source.id}>
+          <CardHeader
+            title={source.name}
+            subtitle={source.description}
+          />
+          <CardActions>
+            <FlatButton onClick={
+              () => {
+                Actions.getArticles(source.id);
+                }
+              }label="Get Articles" />
+          </CardActions>
+        </Card>));
+
+      return (<div>
+                <MuiThemeProvider>
+                  <div style={styles.root}>
+                    <GridList 
+                      cellHeight={180}
+                      style={styles.gridList}
+                    >
+                      {sourceNodes}
+                    </GridList>
+                  </div>
+                </MuiThemeProvider>
+              </div>);
     }
     return (<div> Loading... </div>);
   }

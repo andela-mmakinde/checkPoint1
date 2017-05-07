@@ -1,6 +1,9 @@
 import React from 'react';
 import store from '../stores/store';
 import * as Actions from '../actions/naijActions';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default class Articles extends React.Component {
   constructor() {
@@ -22,14 +25,21 @@ export default class Articles extends React.Component {
   
   render() {
     if (this.state.articles) {
-      const articleNodes = this.state.articles.map(article => (<div key={article.url} className="card card--small">
-        <div className="card__image">
-          <img src={article.urlToImage} />
-        </div>
-        <div className="card__action-bar">{article.author}</div>
-        <div className="title">{article.title}</div>
-        <div className="site_url"><a href={article.url} target="_blank">{article.url}</a></div>
-      </div>));
+      const articleNodes = this.state.articles.map(article => (
+        <MuiThemeProvider key={article.url}>
+          <Card className="articles" >
+            <CardMedia>
+                <img src={article.urlToImage}/>
+            </CardMedia>
+            <CardTitle title={article.title}subtitle={article.author} />
+            <CardText>
+              {article.description}
+            </CardText>
+            <CardActions>
+              <a target="_blank" href={article.url}>Read more</a> 
+            </CardActions>
+          </Card>
+        </MuiThemeProvider>));
 
       return (
         <div>{articleNodes}</div>
