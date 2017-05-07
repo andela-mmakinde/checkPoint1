@@ -19,6 +19,7 @@
     "jquery": "^3.2.1",
     "material-ui": "^0.18.0",
     "react": "^15.5.4",
+    "react-google-login": "^2.8.9",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-search": "^2.0.5",

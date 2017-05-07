@@ -13,7 +13,7 @@ export default class Articles extends React.Component {
     };
   }
   componentWillMount() {
-    Actions.getArticles();
+    Actions.getArticles(this.props.match.params.sourceId);
     store.on('change', this.getArticleList.bind(this))
   }
 
@@ -36,7 +36,9 @@ export default class Articles extends React.Component {
               {article.description}
             </CardText>
             <CardActions>
-              <a target="_blank" href={article.url}>Read more</a> 
+              <div className='button article'>
+                <a target="_blank" href={article.url}>Read more</a> 
+              </div>
             </CardActions>
           </Card>
         </MuiThemeProvider>));

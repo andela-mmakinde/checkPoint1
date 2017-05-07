@@ -30,14 +30,25 @@ export default class Sources extends React.Component {
   }
 
   componentWillMount() {
-      Actions.fetchSources();
-      store.on('change', this.getSourceList.bind(this));
+    Actions.fetchSources();
+    store.on('change', this.getSourceList.bind(this));
   }
 
   getSourceList() {
-      this.setState({
-        sources: store.getSources(),
-      });
+    this.setState({
+      sources: store.getSources(),
+    });
+  }
+
+  filtherSources(evt) {
+    let query = evt.target.value;
+    if (query.trim().length >= 3) {
+      let filteredSources = this.state.sources.filter((source) => {
+        return source.name.toLowerCase().indexOf(query.toLowerCase()) > -1
+      })
+
+      this.setState({sources: filteredSources})
+    }
   }
 
   render() {
@@ -49,15 +60,14 @@ export default class Sources extends React.Component {
             subtitle={source.description}
           />
           <CardActions>
-            <FlatButton onClick={
-              () => {
-                Actions.getArticles(source.id);
-                }
-              }label="Get Articles" />
+            <div className='button'>
+              <a href={`#/articles/${source.id}`}>Get Articles</a>
+            </div>
           </CardActions>
         </Card>));
 
       return (<div>
+              <input className='searchbox' type='text' placeholder='Search Sources' onChange={this.filtherSources.bind(this)}></input>
                 <MuiThemeProvider>
                   <div style={styles.root}>
                     <GridList 
