@@ -1,10 +1,10 @@
 import React from 'react';
 import store from '../stores/store';
 import * as Actions from '../actions/naijActions';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {GridList, GridTile} from 'material-ui/GridList';
+import { GridList, GridTile } from 'material-ui/GridList';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
@@ -24,14 +24,20 @@ const styles = {
 export default class Sources extends React.Component {
   constructor() {
     super();
-      this.state = {
+    this.state = {
       sources: [],
     };
+
+    this.getSourceList = this.getSourceList.bind(this);
   }
 
   componentWillMount() {
     Actions.fetchSources();
-    store.on('change', this.getSourceList.bind(this));
+    store.on('change', this.getSourceList);
+  }
+
+  componentWillUnmount() {
+    store.on('change', this.getSourceList);
   }
 
   getSourceList() {
@@ -41,14 +47,9 @@ export default class Sources extends React.Component {
   }
 
   filtherSources(evt) {
-    let query = evt.target.value;
-    if (query.trim().length >= 3) {
-      let filteredSources = this.state.sources.filter((source) => {
-        return source.name.toLowerCase().indexOf(query.toLowerCase()) > -1
-      })
-
-      this.setState({sources: filteredSources})
-    }
+    const query = evt.target.value;
+    const filteredSources = store.getSources().filter(source => source.name.toLowerCase().indexOf(query.toLowerCase()) != -1);
+    this.setState({ sources: filteredSources });
   }
 
   render() {
@@ -60,25 +61,25 @@ export default class Sources extends React.Component {
             subtitle={source.description}
           />
           <CardActions>
-            <div className='button'>
+            <div className="button">
               <a href={`#/articles/${source.id}`}>Get Articles</a>
             </div>
           </CardActions>
         </Card>));
 
       return (<div>
-              <input className='searchbox' type='text' placeholder='Search Sources' onChange={this.filtherSources.bind(this)}></input>
-                <MuiThemeProvider>
-                  <div style={styles.root}>
-                    <GridList 
-                      cellHeight={180}
-                      style={styles.gridList}
-                    >
-                      {sourceNodes}
-                    </GridList>
-                  </div>
-                </MuiThemeProvider>
-              </div>);
+        <input className="searchbox" type="text" placeholder="Search Sources" onChange={this.filtherSources.bind(this)} />
+        <MuiThemeProvider>
+          <div style={styles.root}>
+            <GridList
+              cellHeight={180}
+              style={styles.gridList}
+            >
+              {sourceNodes}
+            </GridList>
+          </div>
+        </MuiThemeProvider>
+      </div>);
     }
     return (<div> Loading... </div>);
   }

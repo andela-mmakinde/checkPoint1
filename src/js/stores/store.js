@@ -3,42 +3,47 @@ import dispatcher from '../dispatcher';
 
 
 class NaijStore extends EventEmitter {
-	constructor() {
-		super();
-		this.sources = [];
-		this.handleActions = this.handleActions.bind(this);
-	}
+  constructor() {
+    super();
+    this.sources = [];
+    this.handleActions = this.handleActions.bind(this);
+  }
 
-	setSources(data) {
-		this.sources = data;
-		return this.sources;
-	}
-	setArticles(data) {
-		this.articles = data;
-		return this.articles;
-	}
+  setSources(data) {
+    this.sources = data;
+    return this.sources;
+  }
 
-	getSources() {
-		return this.sources;
-	}
-	getArticles() {
-		return this.articles;
-	}
+  setArticles(data) {
+    this.articles = data;
+    return this.articles;
+  }
 
-	handleActions(action){
-		switch (action.type) {
-			case "FETCH_SOURCES": {
-				this.setSources(action.data);
-				this.emit('change');
-				break;
-			}	
-			case "GET_ARTICLES": {
-				this.setArticles(action.data);
-				this.emit('change');
-				break;
-			}			
-		}
-	}
+  getSources() {
+    return this.sources;
+  }
+  getArticles() {
+    return this.articles;
+  }
+
+  handleActions(action) {
+    switch (action.type) {
+      case 'FETCH_SOURCES': {
+        this.setSources(action.data);
+        this.emit('change');
+        break;
+      }
+      case 'GET_ARTICLES': {
+        if (action.err) {
+          this.setArticles([]);
+        } else {
+          this.setArticles(action.data);
+        }
+        this.emit('change');
+        break;
+      }
+    }
+  }
 }
 
 const naijStore = new NaijStore();

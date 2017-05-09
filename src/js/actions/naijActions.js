@@ -1,22 +1,27 @@
-import dispatcher from "../dispatcher.js";
-import * as  apiCalls from "../api.js";
+import dispatcher from '../dispatcher';
+import * as apiCalls from '../api';
 
 export function fetchSources() {
-	let data = apiCalls.sources();
-	data.then((response) => {
-		dispatcher.dispatch({
-			type:'FETCH_SOURCES',
-			data: response.data.sources,
-		});
-	});
+  const data = apiCalls.sources();
+  data.then((response) => {
+    dispatcher.dispatch({
+      type: 'FETCH_SOURCES',
+      data: response.data.sources,
+    });
+  });
 }
 
-export function getArticles(sourceId) {
-	let data = apiCalls.articles(sourceId);
-	data.then((response) => {
-		dispatcher.dispatch({
-			type:'GET_ARTICLES',
-			data: response.data.articles,
-		});
-	});
+export function getArticles(sourceId, sortBy) {
+  const data = apiCalls.articles(sourceId, sortBy);
+  data.then((response) => {
+    dispatcher.dispatch({
+      type: 'GET_ARTICLES',
+      data: response.data.articles,
+    });
+  }).catch((err) => {
+    dispatcher.dispatch({
+      type: 'GET_ARTICLES',
+      err,
+    });
+  });
 }

@@ -1,8 +1,12 @@
+html,body {
+  margin: 0;
+}
 .header{
   background-color: #1a1a00;
   padding: 10px;
   color: white;
   height: 60px;
+  margin: 0;
 }
 
 h1 {
@@ -28,7 +32,7 @@ a {
 }
 
 .nav:hover {
-  background-color: #f46b45;
+  color: #f46b45;
 }
 
 .articles {
@@ -42,9 +46,15 @@ a {
   background-color: #aa1a00;
   margin-left: 400px;
 }
+
 .article {
   margin-left: 700px;
 }
+
+// .img {
+//   height: 50%;
+//   width: 50%;
+// }
 
 .card {
   height: 170px !important;
@@ -59,9 +69,24 @@ a {
   height: 30px;
 }
 
+.sort {
+  margin-top: 15px;
+  margin-left: 30px;
+  font-family: Roboto,sans-serif; 
+}
+
+.radio {
+  margin-left: 15px;
+  word-spacing: 10px;
+}
+
 .footer {
+  word-spacing: 10px;
+  position: relative;
+  bottom: 0;
   background-color: #1a1a00;
   padding: 10px;
   color: white;
   text-align: center;
+  width: 98%;
 }
