@@ -1,12 +1,11 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Card, CardActions, CardHeader } from 'material-ui/Card';
+import { GridList } from 'material-ui/GridList';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import store from '../stores/store';
 import * as Actions from '../actions/naijActions';
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { GridList, GridTile } from 'material-ui/GridList';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 const styles = {
@@ -48,7 +47,8 @@ export default class Sources extends React.Component {
 
   filtherSources(evt) {
     const query = evt.target.value;
-    const filteredSources = store.getSources().filter(source => source.name.toLowerCase().indexOf(query.toLowerCase()) != -1);
+    const filteredSources = store.getSources().filter(
+      source => source.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
     this.setState({ sources: filteredSources });
   }
 

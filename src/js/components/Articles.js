@@ -4,9 +4,6 @@ import { Card, CardActions, CardMedia, CardTitle, CardText } from 'material-ui/C
 import store from '../stores/store';
 import * as Actions from '../actions/naijActions';
 
-
-
-
 export default class Articles extends React.Component {
   constructor() {
     super();

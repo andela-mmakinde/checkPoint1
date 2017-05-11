@@ -1,11 +1,10 @@
-require('./app.scss');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Package from './package';
-import sources from './api';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+require('./app.scss');
 
 
 const root = document.getElementById('root');
