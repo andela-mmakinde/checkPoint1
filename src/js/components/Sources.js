@@ -19,14 +19,12 @@ const styles = {
   },
 };
 
-
 export default class Sources extends React.Component {
   constructor() {
     super();
     this.state = {
       sources: [],
     };
-
     this.getSourceList = this.getSourceList.bind(this);
   }
 

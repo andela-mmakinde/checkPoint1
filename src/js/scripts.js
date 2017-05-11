@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Package from './package';
 
-require('./app.scss');
+require('../../public/app.scss');
 
 const root = document.getElementById('root');
 

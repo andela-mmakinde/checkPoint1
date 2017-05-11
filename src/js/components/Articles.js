@@ -13,6 +13,7 @@ export default class Articles extends React.Component {
 
     this.setArticlesList = this.setArticlesList.bind(this);
   }
+
   componentWillMount() {
     Actions.getArticles(this.props.match.params.sourceId);
     store.on('change', this.setArticlesList);
@@ -40,7 +41,7 @@ export default class Articles extends React.Component {
         articleNodes = this.state.articles.map(article => (
           <Card className="articles" key={article.url}>
             <CardMedia>
-              <img alt="" className="img"src={article.urlToImage} />
+              <img alt="" className="img" src={article.urlToImage} />
             </CardMedia>
             <CardTitle title={article.title}subtitle={article.author} />
             <CardText>
@@ -78,6 +79,7 @@ export default class Articles extends React.Component {
             <div>{articleNodes}</div>
           </div>
         </MuiThemeProvider>
+
       );
     }
     return (<div> Loading... </div>);

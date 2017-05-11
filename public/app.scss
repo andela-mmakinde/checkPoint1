@@ -1,0 +1,88 @@
+html, body {
+  margin: 0;
+}
+
+h1 {
+  font-family: Roboto,sans-serif;
+}
+
+.header {
+  background-color: #1a1a00;
+  padding: 10px;
+  color: white;
+  height: 60px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.navig {
+  font-family: Roboto,sans-serif;
+  text-align: right;
+  padding: 10px;
+  margin-top: -50px;
+  font-size: 16px;
+  color: white;
+}
+
+.nav {
+  margin-left: 20px;
+  color: white;
+  &:hover {
+    color: #f46b45;
+  }
+}
+
+.articles {
+  margin: 40px 15% !important;
+}
+
+.button {
+  padding: 5px;
+  text-align: center;
+  width: 100px;
+  background-color: #aa1a00;
+  margin-left: 400px;
+}
+
+.article {
+  margin-left: 700px;
+}
+
+.card {
+  height: 170px !important;
+  margin: 50px 30px !important;
+  padding: 0 !important;
+}
+
+.searchbox {
+  margin-left: 30%;
+  margin-top: 30px;
+  width: 500px;
+  height: 30px;
+}
+
+.sort {
+  margin-top: 15px;
+  margin-left: 30px;
+  font-family: Roboto,sans-serif;
+}
+
+.radio {
+  margin-left: 15px;
+  word-spacing: 10px;
+}
+
+.footer {
+  word-spacing: 10px;
+  position: relative;
+  bottom: 0;
+  background-color: #1a1a00;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  width: 98%;
+}
