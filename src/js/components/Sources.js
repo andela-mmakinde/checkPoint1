@@ -36,7 +36,7 @@ export default class Sources extends React.Component {
   }
 
   componentWillUnmount() {
-    store.on('change', this.getSourceList);
+    store.removeListener('change', this.getSourceList);
   }
 
   getSourceList() {
