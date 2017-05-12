@@ -8,14 +8,6 @@ module.exports = {
   entry: "./js/scripts.js",
   module: {
     loaders: [
-      // {
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   loader: "eslint-loader",
-      //   options: {
-      //     // eslint options (if necessary)
-      //   }
-      // },
       {
         test: /\.jsx?$/, 
         exclude: /(node_modules|bower_components)/,
@@ -41,6 +33,12 @@ module.exports = {
       },
       
     ]
+  },
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
   },
   output: {
     path: __dirname + "/public/",

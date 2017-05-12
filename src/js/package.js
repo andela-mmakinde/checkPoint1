@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from './components/Header';
-import Articles from './components/Articles';
-import Sources from './components/Sources';
+import Header from './components/Header.jsx';
+import Articles from './components/Articles.jsx';
+import Sources from './components/Sources.jsx';
 import { Switch, Route, HashRouter } from 'react-router-dom';
-import Footer from './components/Footer';
+import Footer from './components/Footer.jsx';
 
 export default class Package extends React.Component {
 
