@@ -7,7 +7,6 @@ import sinon from 'sinon';
 
 
 describe('The component Sources', () => {
-
   it('renders as a <div>', () => {
     const wrapper = shallow(<Sources />);
     expect(wrapper.type()).to.eql('div');
@@ -33,5 +32,4 @@ describe('The component Sources', () => {
     // wrapper.instance().componentWillMount();
     // expect(wrapper.instance().getSourceList()).to.be.true;
   });
-
 });
