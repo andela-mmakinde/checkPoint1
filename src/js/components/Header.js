@@ -19,7 +19,7 @@ export default class Header extends React.Component {
     location.reload();
   }
 
-  logout (e) {
+  logout(e) {
     e.preventDefault();
     localStorage.removeItem('user');
     location.reload();

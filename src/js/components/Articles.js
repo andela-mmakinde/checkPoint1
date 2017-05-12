@@ -57,7 +57,7 @@ export default class Articles extends React.Component {
       } else {
         articleNodes = (<div className="articles"> No articles found </div>);
       }
-      
+
       return (<div>
         <MuiThemeProvider>
           <div>
