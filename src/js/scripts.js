@@ -7,4 +7,3 @@ require('../../public/app.scss');
 const root = document.getElementById('root');
 
 ReactDOM.render(<Package />, root);
-
