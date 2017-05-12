@@ -6,6 +6,7 @@ class NaijStore extends EventEmitter {
   constructor() {
     super();
     this.sources = [];
+    this.articles = [];
     this.handleActions = this.handleActions.bind(this);
   }
 

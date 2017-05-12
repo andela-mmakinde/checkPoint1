@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "stable"
+install:
+  - npm install
+script:
+  - npm test
+addons:
+    code_climate:
+        repo_token: 5d762dbe4525169261d8ed5a2759d195f65f0744a7f671267f7b0ad76a24edef
+after_success: npm run coverage

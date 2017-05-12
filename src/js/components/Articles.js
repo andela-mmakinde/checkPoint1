@@ -4,9 +4,6 @@ import { Card, CardActions, CardMedia, CardTitle, CardText } from 'material-ui/C
 import store from '../stores/store';
 import * as Actions from '../actions/naijActions';
 
-
-
-
 export default class Articles extends React.Component {
   constructor() {
     super();
@@ -16,6 +13,7 @@ export default class Articles extends React.Component {
 
     this.setArticlesList = this.setArticlesList.bind(this);
   }
+
   componentWillMount() {
     Actions.getArticles(this.props.match.params.sourceId);
     store.on('change', this.setArticlesList);
@@ -43,7 +41,7 @@ export default class Articles extends React.Component {
         articleNodes = this.state.articles.map(article => (
           <Card className="articles" key={article.url}>
             <CardMedia>
-              <img alt="" className="img"src={article.urlToImage} />
+              <img alt="" className="img" src={article.urlToImage} />
             </CardMedia>
             <CardTitle title={article.title}subtitle={article.author} />
             <CardText>
@@ -60,7 +58,7 @@ export default class Articles extends React.Component {
         articleNodes = (<div className="articles"> No articles found </div>);
       }
 
-      return (
+      return (<div>
         <MuiThemeProvider>
           <div>
             <form className="sort">
@@ -81,6 +79,7 @@ export default class Articles extends React.Component {
             <div>{articleNodes}</div>
           </div>
         </MuiThemeProvider>
+      </div>
       );
     }
     return (<div> Loading... </div>);

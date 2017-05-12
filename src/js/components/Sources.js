@@ -1,25 +1,23 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { Card, CardActions, CardHeader } from 'material-ui/Card';
+import { GridList } from 'material-ui/GridList';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import store from '../stores/store';
 import * as Actions from '../actions/naijActions';
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { GridList, GridTile } from 'material-ui/GridList';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
+  // root: {
+  //   display: 'flex',
+  //   flexWrap: 'wrap',
+  //   justifyContent: 'space-around',
+  // },
   gridList: {
     height: 'auto',
   },
 };
-
 
 export default class Sources extends React.Component {
   constructor() {
@@ -27,7 +25,6 @@ export default class Sources extends React.Component {
     this.state = {
       sources: [],
     };
-
     this.getSourceList = this.getSourceList.bind(this);
   }
 
@@ -37,7 +34,7 @@ export default class Sources extends React.Component {
   }
 
   componentWillUnmount() {
-    store.on('change', this.getSourceList);
+    store.removeListener('change', this.getSourceList);
   }
 
   getSourceList() {
@@ -48,7 +45,8 @@ export default class Sources extends React.Component {
 
   filtherSources(evt) {
     const query = evt.target.value;
-    const filteredSources = store.getSources().filter(source => source.name.toLowerCase().indexOf(query.toLowerCase()) != -1);
+    const filteredSources = store.getSources().filter(
+      source => source.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
     this.setState({ sources: filteredSources });
   }
 
@@ -70,7 +68,7 @@ export default class Sources extends React.Component {
       return (<div>
         <input className="searchbox" type="text" placeholder="Search Sources" onChange={this.filtherSources.bind(this)} />
         <MuiThemeProvider>
-          <div style={styles.root}>
+          <div>
             <GridList
               cellHeight={180}
               style={styles.gridList}
