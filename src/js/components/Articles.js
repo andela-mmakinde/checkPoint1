@@ -57,8 +57,8 @@ export default class Articles extends React.Component {
       } else {
         articleNodes = (<div className="articles"> No articles found </div>);
       }
-
-      return (
+      
+      return (<div>
         <MuiThemeProvider>
           <div>
             <form className="sort">
@@ -79,7 +79,7 @@ export default class Articles extends React.Component {
             <div>{articleNodes}</div>
           </div>
         </MuiThemeProvider>
-
+      </div>
       );
     }
     return (<div> Loading... </div>);

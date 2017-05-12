@@ -5,7 +5,10 @@ import Articles from '../../src/js/components/Articles';
 
 describe('The component Articles', () => {
   it('renders as a <div>', () => {
-    const wrapper = shallow(<Articles />);
+    const options = {
+      match: { params: { sourceId: 'mySource' } },
+    };
+    const wrapper = shallow(<Articles {...options} />);
     expect(wrapper.type()).to.eql('div');
   });
 });

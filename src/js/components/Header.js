@@ -19,15 +19,11 @@ export default class Header extends React.Component {
     location.reload();
   }
 
-  profilePics() {
-
-    }
-
   logout (e) {
     e.preventDefault();
     localStorage.removeItem('user');
     location.reload();
- }
+  }
 
   render() {
     const login = (

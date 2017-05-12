@@ -9,11 +9,11 @@ import * as Actions from '../actions/naijActions';
 injectTapEventPlugin();
 
 const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
+  // root: {
+  //   display: 'flex',
+  //   flexWrap: 'wrap',
+  //   justifyContent: 'space-around',
+  // },
   gridList: {
     height: 'auto',
   },
@@ -68,7 +68,7 @@ export default class Sources extends React.Component {
       return (<div>
         <input className="searchbox" type="text" placeholder="Search Sources" onChange={this.filtherSources.bind(this)} />
         <MuiThemeProvider>
-          <div style={styles.root}>
+          <div>
             <GridList
               cellHeight={180}
               style={styles.gridList}
