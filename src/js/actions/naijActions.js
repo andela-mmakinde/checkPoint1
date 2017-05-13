@@ -1,7 +1,7 @@
 import dispatcher from '../dispatcher';
 import * as apiCalls from '../api';
 
-export function fetchSources() {
+export const fetchSources = () => {
   const data = apiCalls.sources();
   data.then((response) => {
     dispatcher.dispatch({
@@ -9,9 +9,9 @@ export function fetchSources() {
       data: response.data.sources,
     });
   });
-}
+};
 
-export function getArticles(sourceId, sortBy) {
+export const getArticles = (sourceId, sortBy) => {
   const data = apiCalls.articles(sourceId, sortBy);
   data.then((response) => {
     dispatcher.dispatch({
@@ -24,4 +24,4 @@ export function getArticles(sourceId, sortBy) {
       err,
     });
   });
-}
+};

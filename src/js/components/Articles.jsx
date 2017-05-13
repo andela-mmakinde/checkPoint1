@@ -10,13 +10,16 @@ export default class Articles extends React.Component {
     this.state = {
       articles: [],
     };
-
+    this.sortArticle = this.sortArticle.bind(this);
     this.setArticlesList = this.setArticlesList.bind(this);
   }
 
   componentWillMount() {
-    Actions.getArticles(this.props.match.params.sourceId);
     store.on('change', this.setArticlesList);
+  }
+
+  componentDidMount() {
+    Actions.getArticles(this.props.match.params.sourceId);
   }
 
   componentWillUnmount() {
@@ -65,15 +68,15 @@ export default class Articles extends React.Component {
               <label>Sort articles by: </label>
               <input
                 type="radio" name="sort" value="top" className="radio"
-                onClick={this.sortArticle.bind(this)}
+                onClick={this.sortArticle}
               />Top
               <input
                 type="radio" name="sort" value="latest" className="radio"
-                onClick={this.sortArticle.bind(this)}
+                onClick={this.sortArticle}
               />Latest
               <input
                 type="radio" name="sort" value="popular" className="radio"
-                onClick={this.sortArticle.bind(this)}
+                onClick={this.sortArticle}
               />Popular
             </form>
             <div>{articleNodes}</div>

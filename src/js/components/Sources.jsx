@@ -26,11 +26,15 @@ export default class Sources extends React.Component {
       sources: [],
     };
     this.getSourceList = this.getSourceList.bind(this);
+    this.filtherSources = this.filtherSources.bind(this);
   }
 
   componentWillMount() {
-    Actions.fetchSources();
     store.on('change', this.getSourceList);
+  }
+
+  componentDidMount() {
+    Actions.fetchSources();
   }
 
   componentWillUnmount() {
@@ -66,7 +70,7 @@ export default class Sources extends React.Component {
         </Card>));
 
       return (<div>
-        <input className="searchbox" type="text" placeholder="Search Sources" onChange={this.filtherSources.bind(this)} />
+        <input className="searchbox" type="text" placeholder="Search Sources" onChange={this.filtherSources} />
         <MuiThemeProvider>
           <div>
             <GridList

@@ -33,12 +33,11 @@ export default class Header extends React.Component {
         onFailure={this.errorGoogle}
         tag="span"
         disabled="false"
-        style={{ opacity: 1 }}
+        className="navig"
       >
-        <a className="nav" href="">Log in</a>
+        <span className="google"><img src="images/google6.png" alt="googleSignIn" className="googleimg" /><span className="login">Login</span></span>
       </GoogleLogin>
     );
-
     const logout = (
       <a className="nav" href="" onClick={this.logout}>Logout</a>
     );
@@ -46,7 +45,7 @@ export default class Header extends React.Component {
     const show = localStorage.user ? logout : login;
     return (
       <header className="header">
-        <h1>NewsApp!</h1>
+        <h1><a href={'/'}>NewsApp!</a></h1>
         <h5 className="navig">
           <a className="nav" href={'/'}>Sources</a>
           <a className="nav" href={'/favorites'}>Favorites</a>
