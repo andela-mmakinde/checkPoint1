@@ -10,13 +10,13 @@ class NaijStore extends EventEmitter {
     this.handleActions = this.handleActions.bind(this);
   }
 
-  setSources(data) {
-    this.sources = data;
+  setSources(availableSources) {
+    this.sources = availableSources;
     return this.sources;
   }
 
-  setArticles(data) {
-    this.articles = data;
+  setArticles(availableArticles) {
+    this.articles = availableArticles;
     return this.articles;
   }
 
@@ -30,7 +30,7 @@ class NaijStore extends EventEmitter {
   handleActions(action) {
     switch (action.type) {
       case 'FETCH_SOURCES': {
-        this.setSources(action.data);
+        this.setSources(action.sources);
         this.emit('change');
         break;
       }
@@ -38,7 +38,7 @@ class NaijStore extends EventEmitter {
         if (action.err) {
           this.setArticles([]);
         } else {
-          this.setArticles(action.data);
+          this.setArticles(action.articles);
         }
         this.emit('change');
         break;

@@ -1,0 +1,36 @@
+import React from 'react';
+import GoogleLogin from 'react-google-login';
+
+export const responseGoogle = (response) => {
+  const profile = response.getBasicProfile();
+  const user = {};
+  user.username = profile.getName();
+  user.email = profile.getEmail();
+  user.image = profile.getImageUrl();
+  localStorage.setItem('user', JSON.stringify(user));
+  location.reload();
+};
+
+const Id = process.env.clientId;
+
+export const login = (
+  <GoogleLogin
+    clientId={Id}
+    onSuccess={responseGoogle}
+    tag="span"
+    disabled="false"
+    className="navig"
+  >
+    <span className="google"><img src="images/google6.png" alt="googleSignIn" className="googleimg" /><span className="login">Login</span></span>
+  </GoogleLogin>
+);
+
+export const logout = (e) => {
+  e.preventDefault();
+  localStorage.removeItem('user');
+  location.reload();
+};
+export const out = (
+  <a className="nav" href="" onClick={logout}>Logout</a>
+);
+

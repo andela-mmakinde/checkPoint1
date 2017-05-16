@@ -2,6 +2,10 @@ html, body {
   margin: 0;
 }
 
+#root {
+  min-height: 95vh;
+}
+
 h1 {
   font-family: Roboto,sans-serif;
 }
@@ -60,10 +64,15 @@ a {
 }
 
 .searchbox {
-  margin-left: 30%;
+  margin-left: 20%;
   margin-top: 30px;
-  width: 500px;
-  height: 30px;
+  height: 38px;
+  width: 750px;
+  max-width: 95%;
+  border: 1px #ddd double;
+  font-weight: 500;
+  font-size: 16px;
+  padding-left: 44px;
 }
 
 .sort {
@@ -78,15 +87,12 @@ a {
 }
 
 .footer {
-	top: 55px;
   word-spacing: 10px;
-  position: relative;
-  bottom: 0;
   background-color: #1a1a00;
   padding: 10px;
   color: white;
   text-align: center;
-  width: 98%;
+  width: 100%;
 }
 
 .google {
@@ -109,4 +115,10 @@ a {
   padding: 2px;
   font-size: 14px;
   vertical-align: super;
+}
+
+.articleLogin {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
 }

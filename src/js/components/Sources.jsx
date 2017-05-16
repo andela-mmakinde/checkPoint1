@@ -1,19 +1,14 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Card, CardActions, CardHeader } from 'material-ui/Card';
 import { GridList } from 'material-ui/GridList';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import store from '../stores/store';
 import * as Actions from '../actions/naijActions';
+import Card from './SourceCard.jsx';
 
 injectTapEventPlugin();
 
 const styles = {
-  // root: {
-  //   display: 'flex',
-  //   flexWrap: 'wrap',
-  //   justifyContent: 'space-around',
-  // },
   gridList: {
     height: 'auto',
   },
@@ -55,21 +50,12 @@ export default class Sources extends React.Component {
   }
 
   render() {
-    if (this.state.sources) {
-      const sourceNodes = this.state.sources.map(source => (
-        <Card className="card" key={source.id}>
-          <CardHeader
-            title={source.name}
-            subtitle={source.description}
-          />
-          <CardActions>
-            <div className="button">
-              <a href={`#/articles/${source.id}`}>Get Articles</a>
-            </div>
-          </CardActions>
-        </Card>));
+    const sourceNodes = this.state.sources.map(source => (
+      <Card source={source} key={source.id} />
+      ));
 
-      return (<div>
+    return (
+      <div>
         <input className="searchbox" type="text" placeholder="Search Sources" onChange={this.filtherSources} />
         <MuiThemeProvider>
           <div>
@@ -82,7 +68,5 @@ export default class Sources extends React.Component {
           </div>
         </MuiThemeProvider>
       </div>);
-    }
-    return (<div> Loading... </div>);
   }
 }

@@ -1,5 +1,6 @@
 const debug = process.env.NODE_ENV !== 'production';
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
 module.exports = {
@@ -43,7 +44,11 @@ module.exports = {
     path: `${__dirname}/public/`,
     filename: 'scripts.min.js',
   },
-  plugins: debug ? [] : [
+  plugins: debug ? [
+    new Dotenv({
+      path: './.env',
+    }),
+  ] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
