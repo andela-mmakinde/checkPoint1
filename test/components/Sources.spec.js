@@ -22,7 +22,7 @@ describe('The component Sources', () => {
     const gridList = { height: 'auto' };
     // console.log(wrapper.find(GridList).node.props);
     expect(wrapper.find(GridList).node.props.style).to.eql(gridList);
-    expect(wrapper.find(GridList).node.props.cellHeight).to.eql(180);
+    expect(wrapper.find(GridList).node.props.cellHeight).to.eql(220);
   });
 
 

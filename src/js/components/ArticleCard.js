@@ -5,7 +5,7 @@ const card = ({ article }) => {
   return (
     <Card className="articles">
       <CardMedia>
-        <img alt="article" className="img" src={article.urlToImage} />
+        <img alt="Article Image" className="img" src={article.urlToImage} />
       </CardMedia>
       <CardTitle title={article.title}subtitle={article.author} />
       <CardText>

@@ -1,12 +1,13 @@
 const debug = process.env.NODE_ENV !== 'production';
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
   devtool: debug ? 'inline-sourcemap' : null,
-  entry: './js/scripts.jsx',
+  entry: './js/scripts.js',
   module: {
     loaders: [
       {
@@ -19,17 +20,10 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'sass-loader',
-          },
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+        }),
       },
 
     ],
@@ -45,6 +39,7 @@ module.exports = {
     filename: 'scripts.min.js',
   },
   plugins: debug ? [
+    new ExtractTextPlugin('./style.css'),
     new Dotenv({
       path: './.env',
     }),

@@ -9,8 +9,6 @@ export default class Header extends React.Component {
   }
 
   render() {
-    // const obj = JSON.parse(localStorage.getItem('user'));
-    // const displayPics = (<div><img src={obj.image} alt="" /></div>);
     const show = localStorage.user ? auth.out : auth.login;
 
     return (

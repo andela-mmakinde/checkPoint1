@@ -36,11 +36,11 @@ describe('Actions', () => {
     expect(Actions.getArticles).to.exist;
   });
 
-  it('should send information received from the api to the dispatcher', () => {
-    dispatcher.dispatch({
-      type: 'FETCH_SOURCES',
-      sources: apiResponse,
-    });
-    expect(apiResponse).to.exist;
-  });
+  // it('should send information received from the api to the dispatcher', () => {
+  //   dispatcher.dispatch({
+  //     type: 'FETCH_SOURCES',
+  //     sources: apiResponse,
+  //   });
+  //   expect(apiResponse).to.exist;
+  // });
 });

@@ -1,9 +1,8 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import store from '../stores/store';
 import * as Actions from '../actions/naijActions';
-import * as auth from '../auth';
-import Card from './ArticleCard.jsx';
+import Card from './ArticleCard';
+import articleStore from '../stores/articleStore';
 
 export default class Articles extends React.Component {
   constructor() {
@@ -17,7 +16,7 @@ export default class Articles extends React.Component {
   }
 
   componentWillMount() {
-    store.on('change', this.setArticlesList);
+    articleStore.on('change', this.setArticlesList);
   }
 
   componentDidMount() {
@@ -25,12 +24,12 @@ export default class Articles extends React.Component {
   }
 
   componentWillUnmount() {
-    store.removeListener('change', this.setArticlesList);
+    articleStore.removeListener('change', this.setArticlesList);
   }
 
   setArticlesList() {
     this.setState({
-      articles: store.getArticles(),
+      articles: articleStore.getArticles(),
     });
   }
 

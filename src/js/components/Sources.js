@@ -2,9 +2,9 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { GridList } from 'material-ui/GridList';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import store from '../stores/store';
+import sourceStore from '../stores/sourceStore';
 import * as Actions from '../actions/naijActions';
-import Card from './SourceCard.jsx';
+import Card from './SourceCard';
 
 injectTapEventPlugin();
 
@@ -25,7 +25,7 @@ export default class Sources extends React.Component {
   }
 
   componentWillMount() {
-    store.on('change', this.getSourceList);
+    sourceStore.on('change', this.getSourceList);
   }
 
   componentDidMount() {
@@ -33,26 +33,26 @@ export default class Sources extends React.Component {
   }
 
   componentWillUnmount() {
-    store.removeListener('change', this.getSourceList);
+    sourceStore.removeListener('change', this.getSourceList);
   }
 
   getSourceList() {
     this.setState({
-      sources: store.getSources(),
+      sources: sourceStore.getSources(),
     });
   }
 
   filterSources(evt) {
     const query = evt.target.value;
-    const filteredSources = store.getSources().filter(
+    const filteredSources = sourceStore.getSources().filter(
       source => source.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
     this.setState({ sources: filteredSources });
   }
 
   render() {
-    const sourceNodes = this.state.sources.map(source => (
-      <Card source={source} key={source.id} />
-      ));
+    const sourceNodes = this.state.sources.map(source =>
+      <Card source={source} key={source.id} />,
+      );
 
     return (
       <div>
@@ -63,7 +63,7 @@ export default class Sources extends React.Component {
               cellHeight={220}
               style={styles.gridList}
             >
-              {sourceNodes}
+              { sourceNodes }
             </GridList>
           </div>
         </MuiThemeProvider>

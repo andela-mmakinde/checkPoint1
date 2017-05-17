@@ -1,10 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import naijStore from '../../src/js/stores/store';
+import Store from '../../src/js/stores/articleStore';
 import { EventEmitter } from 'events';
 import dispatcher from '../../src/js/dispatcher';
-
 
 describe('Articles Store', () => {
   const apiReponse = {
@@ -47,22 +45,22 @@ describe('Articles Store', () => {
     ],
   };
   it('should exist', () => {
-    expect(naijStore).to.exist;
+    expect(Store).to.exist;
   });
 
   it('should be an object', () => {
-    expect(naijStore).to.be.an('object');
+    expect(Store).to.be.an('object');
   });
 
   it('should have a handleActions function', () => {
-    expect(naijStore.handleActions).to.be.a('function');
+    expect(Store.handleActions).to.be.a('function');
   });
 
-  it('should receive headlines from dispatcher', () => {
+  it('should receive newsArticles from dispatcher', () => {
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
       articles: apiReponse,
     });
-    expect(naijStore.getArticles()).to.eql(apiReponse);
+    expect(Store.getArticles()).to.eql(apiReponse);
   });
 });

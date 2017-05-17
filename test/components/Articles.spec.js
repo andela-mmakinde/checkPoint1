@@ -13,7 +13,7 @@ describe('The component Articles', () => {
       match: { params: { sourceId: 'mySource' } },
     };
     const wrapper = shallow(<Articles {...options} />);
-    expect(wrapper.type()).to.eql('span');
+    expect(wrapper.type()).to.eql('div');
   });
 
   it('should have an initial empty array of articles', () => {

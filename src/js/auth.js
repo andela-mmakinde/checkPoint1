@@ -30,6 +30,7 @@ export const logout = (evt) => {
   localStorage.removeItem('user');
   location.reload();
 };
+
 export const out = (
   <a className="nav" href="" onClick={logout}>Logout</a>
 );
