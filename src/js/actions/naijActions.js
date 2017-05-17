@@ -1,22 +1,28 @@
 import dispatcher from '../dispatcher';
 import * as apiCalls from '../api';
 
-export function fetchSources() {
-  const data = apiCalls.sources();
-  data.then((response) => {
+/**
+ * This function fetches news sources from the api
+ */
+export const fetchSources = () => {
+  const availableSources = apiCalls.sources();
+  availableSources.then((response) => {
     dispatcher.dispatch({
       type: 'FETCH_SOURCES',
-      data: response.data.sources,
+      sources: response.data.sources,
     });
   });
-}
+};
 
-export function getArticles(sourceId, sortBy) {
-  const data = apiCalls.articles(sourceId, sortBy);
-  data.then((response) => {
+/**
+ * This function fetches news headlines from the api.
+ */
+export const getArticles = (sourceId, sortBy) => {
+  const availableArticles = apiCalls.articles(sourceId, sortBy);
+  availableArticles.then((response) => {
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
-      data: response.data.articles,
+      articles: response.data.articles,
     });
   }).catch((err) => {
     dispatcher.dispatch({
@@ -24,4 +30,4 @@ export function getArticles(sourceId, sortBy) {
       err,
     });
   });
-}
+};

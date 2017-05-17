@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Package from './package';
-
-require('../../public/app.scss');
+import Package from './route';
 
 const root = document.getElementById('root');
 

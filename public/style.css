@@ -1,27 +1,22 @@
 html, body {
-  margin: 0;
-}
+  margin: 0; }
 
 #root {
-  min-height: 95vh;
-}
+  min-height: 95vh; }
 
 h1 {
-  font-family: Roboto,sans-serif;
-}
+  font-family: Roboto,sans-serif; }
 
 .header {
   background-color: #1a1a00;
   padding: 10px;
   color: #FFFFFF;
   height: 60px;
-  margin: 0;
-}
+  margin: 0; }
 
 a {
   text-decoration: none;
-  color: #FFFFFF;
-}
+  color: #FFFFFF; }
 
 .navig {
   font-family: Roboto,sans-serif;
@@ -30,42 +25,33 @@ a {
   padding: 10px;
   margin-top: -50px;
   font-size: 16px;
-  color: #FFFFFF;
-  
-}
+  color: #FFFFFF; }
 
 .nav {
   margin-right: 35px;
-  color: #FFFFFF;
-  &:hover {
-  color: #aaaaaa;
-  }
-}
+  color: #FFFFFF; }
+  .nav:hover {
+    color: #aaaaaa; }
 
 .articles {
   margin: 40px 300px !important;
-  width: 50% !important;
-}
+  width: 50% !important; }
 
 .button {
   float: right;
   padding: 5px;
   text-align: center;
   width: 100px;
-  background-color: #aa1a00;
-  // margin-left: 450px;
-}
+  background-color: #aa1a00; }
 
 .article {
   overflow: auto;
-  margin-right: 0 !important;
-}
+  margin-right: 0 !important; }
 
 .card {
   height: 170px !important;
   margin: 50px 30px !important;
-  padding: 0 !important;
-}
+  padding: 0 !important; }
 
 .searchbox {
   margin-left: 20%;
@@ -76,19 +62,16 @@ a {
   border: 1px #ddd double;
   font-weight: 500;
   font-size: 16px;
-  padding-left: 44px;
-}
+  padding-left: 44px; }
 
 .sort {
   margin-top: 15px;
   margin-left: 30px;
-  font-family: Roboto,sans-serif;
-}
+  font-family: Roboto,sans-serif; }
 
 .radio {
   margin-left: 15px;
-  word-spacing: 10px;
-}
+  word-spacing: 10px; }
 
 .google {
   margin-top: -18px;
@@ -99,28 +82,24 @@ a {
   cursor: pointer;
   display: inline-block;
   vertical-align: sub;
-  border-radius: 4px;
-}
+  border-radius: 4px; }
 
 .googleimg {
-  height: 35%;
-}
+  height: 35%; }
 
 .login {
   padding: 2px;
   font-size: 14px;
-  vertical-align: super;
-}
+  vertical-align: super; }
 
 .articleLogin {
   text-decoration: none;
   color: #000000;
-  font-size: 20px;
-}
+  font-size: 20px; }
 
 .loggedOut {
   font-size: 35px;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 150px; }
 
-}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3N0eWxlLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/
