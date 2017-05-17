@@ -31,7 +31,7 @@ export default class Sources extends React.Component {
   componentDidMount() {
     Actions.fetchSources();
   }
-
+  // componentWillUnMount - Runs when component is changed
   componentWillUnmount() {
     sourceStore.removeListener('change', this.getSourceList);
   }
@@ -41,7 +41,11 @@ export default class Sources extends React.Component {
       sources: sourceStore.getSources(),
     });
   }
-
+  /**
+   * filterSources - Searches through available sources
+   * @param {evt}
+   * Sets the state of sources to the result
+   */
   filterSources(evt) {
     const query = evt.target.value;
     const filteredSources = sourceStore.getSources().filter(

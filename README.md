@@ -43,23 +43,17 @@ Enzyme.
 
 ### Core Technologies
 
-* React: For the User Interface (https://facebook.github.io/react/)
-* React-Router: For routing in the app
- (https://www.npmjs.com/package/react-router)
-* ReactDom: This package serves as the entry point of the DOM-related rendering
- paths(https://www.npmjs.com/package/react-dom)
-* Node.js (npm): NPM was used to install all node packages
- (https://nodejs.org/en/)
-* ES6: Used in React classes
-* Webpack: webpack bundles my modules into one static asset
- (https://webpack.github.io/)
-* Babel: For transpiling ES6 syntax to ES5(https://babeljs.io/)
-* Mocha: For writing tests(https://mochajs.org/)
-* Chai: Expect statements in my test suites(http://chaijs.com/)
-* Enzyme: Used with Mocha and chai to test React components
- (https://github.com/airbnb/enzyme)
-* axios: http client library for making api calls
-(https://www.npmjs.com/package/axios)
+* React
+* ReactDom
+* React-Router
+* Node.js
+* Webpack
+* Enzyme
+* Babel
+* Mocha
+* Chai
+* Express
+* axios
 
 ### Resources
 * News api: provides endpoints for news sources and headlines (newsapi.org)
