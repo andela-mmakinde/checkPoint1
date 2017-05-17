@@ -1,6 +1,9 @@
 import dispatcher from '../dispatcher';
 import * as apiCalls from '../api';
 
+/**
+ * This function fetches news sources from the api
+ */
 export const fetchSources = () => {
   const availableSources = apiCalls.sources();
   availableSources.then((response) => {
@@ -11,6 +14,9 @@ export const fetchSources = () => {
   });
 };
 
+/**
+ * This function fetches news headlines from the api.
+ */
 export const getArticles = (sourceId, sortBy) => {
   const availableArticles = apiCalls.articles(sourceId, sortBy);
   availableArticles.then((response) => {

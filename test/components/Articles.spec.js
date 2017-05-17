@@ -4,6 +4,10 @@ import Articles from '../../src/js/components/Articles';
 
 
 describe('The component Articles', () => {
+  const state = {
+    articles: [],
+  };
+
   it('renders as a <div>', () => {
     const options = {
       match: { params: { sourceId: 'mySource' } },
@@ -12,13 +16,8 @@ describe('The component Articles', () => {
     expect(wrapper.type()).to.eql('span');
   });
 
-  // it('should contain 3 radio buttons to allow users sort through articles', () => {
-  //   const wrapper = shallow(<Articles />);
-  //   expect(wrapper.find('input')).to.have.length(3);
-  // });
-
-  it ('should load any article clicked on a new tab', () => {
+  it('should have an initial empty array of articles', () => {
     const wrapper = shallow(<Articles />);
-    console.log(wrapper.find('a'));
-  })
+    expect(wrapper.state()).to.deep.equal(state);
+  });
 });

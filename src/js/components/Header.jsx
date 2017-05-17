@@ -18,7 +18,6 @@ export default class Header extends React.Component {
         <h1><a className="head" href={'/'}>NewsApp!</a></h1>
         <h5 className="navig">
           <a className="nav" href={'/'}>Sources</a>
-          <a className="nav" href={'/favorites'}>Favorites</a>
           {show}
         </h5>
       </header>

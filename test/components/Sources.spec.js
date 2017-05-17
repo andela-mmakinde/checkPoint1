@@ -7,7 +7,6 @@ import sinon from 'sinon';
 
 
 describe('The component Sources', () => {
-
   it('renders without exploding', () => {
     expect(shallow(<Sources />).length).to.eql(1);
   });
@@ -28,9 +27,9 @@ describe('The component Sources', () => {
 
 
   it('should have an input bar to receive user search query', () => {
-    const wrapper = shallow(<Sources/>);
+    const wrapper = shallow(<Sources />);
     expect(wrapper.find('input').prop('type')).to.eql('text');
-  })
+  });
   // it('calls fetchSources when componentWillMount is called', () => {
   //   const Action = {
   //     fetchSources() {

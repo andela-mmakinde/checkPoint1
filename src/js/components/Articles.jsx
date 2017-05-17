@@ -34,21 +34,17 @@ export default class Articles extends React.Component {
     });
   }
 
-  sortArticle(e) {
-    Actions.getArticles(this.props.match.params.sourceId, e.target.value);
+  sortArticle(evt) {
+    Actions.getArticles(this.props.match.params.sourceId, evt.target.value);
   }
 
-  // checkLoginStatus(renderFunc) {
-  //   return localStorage.user ? renderFunc() : <div>Please login to view article</div>;
-  // }
-
-  sortArticleButton() { 
+  sortArticleButton() {
     return (
       <form className="sort">
         <label>Sort articles by: </label>
         <input
           type="radio" name="sort" value="top" className="radio"
-          onClick={this.sortArticle}
+          defaultChecked="checked" onClick={this.sortArticle}
         />Top
         <input
           type="radio" name="sort" value="latest" className="radio"
@@ -87,6 +83,6 @@ export default class Articles extends React.Component {
       }
       return (<div> Loading... </div>);
     }
-    return (<span className="">Please {auth.login} to view this article</span>);
+    return (<div className="loggedOut">Please login to view</div>);
   }
 }

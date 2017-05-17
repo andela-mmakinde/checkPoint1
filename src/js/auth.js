@@ -25,8 +25,8 @@ export const login = (
   </GoogleLogin>
 );
 
-export const logout = (e) => {
-  e.preventDefault();
+export const logout = (evt) => {
+  evt.preventDefault();
   localStorage.removeItem('user');
   location.reload();
 };

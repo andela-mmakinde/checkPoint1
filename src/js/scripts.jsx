@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Package from './package';
+import Package from './route';
 
 require('../../public/app.scss');
 

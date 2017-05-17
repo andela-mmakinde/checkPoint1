@@ -21,7 +21,7 @@ export default class Sources extends React.Component {
       sources: [],
     };
     this.getSourceList = this.getSourceList.bind(this);
-    this.filtherSources = this.filtherSources.bind(this);
+    this.filterSources = this.filterSources.bind(this);
   }
 
   componentWillMount() {
@@ -42,7 +42,7 @@ export default class Sources extends React.Component {
     });
   }
 
-  filtherSources(evt) {
+  filterSources(evt) {
     const query = evt.target.value;
     const filteredSources = store.getSources().filter(
       source => source.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
@@ -56,11 +56,11 @@ export default class Sources extends React.Component {
 
     return (
       <div>
-        <input className="searchbox" type="text" placeholder="Search Sources" onChange={this.filtherSources} />
+        <input className="searchbox" type="text" placeholder="Search Sources" onChange={this.filterSources} />
         <MuiThemeProvider>
           <div>
             <GridList
-              cellHeight={180}
+              cellHeight={220}
               style={styles.gridList}
             >
               {sourceNodes}

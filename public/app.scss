@@ -13,14 +13,14 @@ h1 {
 .header {
   background-color: #1a1a00;
   padding: 10px;
-  color: white;
+  color: #FFFFFF;
   height: 60px;
   margin: 0;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: #FFFFFF;
 }
 
 .navig {
@@ -30,31 +30,35 @@ a {
   padding: 10px;
   margin-top: -50px;
   font-size: 16px;
-  color: white;
+  color: #FFFFFF;
+  
 }
 
 .nav {
-  margin-left: 20px;
-  color: white;
+  margin-right: 35px;
+  color: #FFFFFF;
   &:hover {
   color: #aaaaaa;
   }
 }
 
 .articles {
-  margin: 40px 15% !important;
+  margin: 40px 300px !important;
+  width: 50% !important;
 }
 
 .button {
+  float: right;
   padding: 5px;
   text-align: center;
   width: 100px;
   background-color: #aa1a00;
-  margin-left: 400px;
+  // margin-left: 450px;
 }
 
 .article {
-  margin-left: 700px;
+  overflow: auto;
+  margin-right: 0 !important;
 }
 
 .card {
@@ -110,6 +114,13 @@ a {
 
 .articleLogin {
   text-decoration: none;
-  color: black;
+  color: #000000;
   font-size: 20px;
+}
+
+.loggedOut {
+  font-size: 35px;
+  text-align: center;
+  margin-top: 150px;
+
 }
