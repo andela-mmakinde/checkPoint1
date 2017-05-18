@@ -56,10 +56,11 @@ export default class Articles extends React.Component {
 
 
   render() {
+    // check if a users details are present in the local storage.
     if (localStorage.user) {
       if (this.state.articles) {
         let articleNodes;
-
+        // check if the articles array returned is not empty
         if (this.state.articles.length) {
           articleNodes = this.state.articles.map(article => (
             <Card article={article} key={article.url} />

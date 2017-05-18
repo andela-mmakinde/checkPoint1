@@ -21,17 +21,17 @@ describe('The component Articles', () => {
     expect(wrapper.state()).to.deep.equal(state);
   });
 
-  it('should ', () => {
+  it('should contain a method sortArticles', () => {
     const wrapper = shallow(<Articles />);
     wrapper.instance().sortArticle;
   });
 
-  it('should ', () => {
+  it('should contain a method setArticlesList', () => {
     const wrapper = shallow(<Articles />);
     wrapper.instance().setArticlesList;
   });
 
-  it('should ', () => {
+  it('should contain a method sortArticleButton ', () => {
     const wrapper = shallow(<Articles />);
     wrapper.instance().sortArticleButton;
   });
