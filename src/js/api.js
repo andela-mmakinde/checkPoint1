@@ -7,6 +7,9 @@ export function sources() {
 }
 
 export function articles(sourceId, sortBy) {
-  return axios.get(`https://newsapi.org/v1/articles?source=${sourceId || 'techcrunch'}&sortBy=${sortBy || 'top'}&apiKey=${apiKey}`);
+  return axios.get(
+    `https://newsapi.org/v1/articles?source=${sourceId}&
+    sortBy=${sortBy}&apiKey=${apiKey}`,
+    );
 }
 
