@@ -5,7 +5,7 @@ import Articles from './components/Articles';
 import Sources from './components/Sources';
 
 
-const Package = () => (
+const Routes = () => (
   <div>
     <Header />
     <HashRouter>
@@ -19,4 +19,4 @@ const Package = () => (
 );
 
 
-export default Package;
+export default Routes;

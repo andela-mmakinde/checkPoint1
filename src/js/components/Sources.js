@@ -1,12 +1,9 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { GridList } from 'material-ui/GridList';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import sourceStore from '../stores/sourceStore';
 import * as Actions from '../actions/naijActions';
 import Card from './SourceCard';
-
-injectTapEventPlugin();
 
 const styles = {
   gridList: {
