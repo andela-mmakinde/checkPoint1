@@ -15,11 +15,9 @@ export default class Articles extends React.Component {
     this.sortArticleButton = this.sortArticleButton.bind(this);
   }
 
-  componentWillMount() {
-    articleStore.on('change', this.setArticlesList);
-  }
-
+// componentDidMount - Runs when component is loaded
   componentDidMount() {
+    articleStore.on('change', this.setArticlesList);
     Actions.getArticles(this.props.match.params.sourceId);
   }
 

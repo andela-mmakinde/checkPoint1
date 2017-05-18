@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import Articles from '../../src/js/components/Articles';
 
 
@@ -19,5 +19,20 @@ describe('The component Articles', () => {
   it('should have an initial empty array of articles', () => {
     const wrapper = shallow(<Articles />);
     expect(wrapper.state()).to.deep.equal(state);
+  });
+
+  it('should ', () => {
+    const wrapper = shallow(<Articles />);
+    wrapper.instance().sortArticle;
+  });
+
+  it('should ', () => {
+    const wrapper = shallow(<Articles />);
+    wrapper.instance().setArticlesList;
+  });
+
+  it('should ', () => {
+    const wrapper = shallow(<Articles />);
+    wrapper.instance().sortArticleButton;
   });
 });

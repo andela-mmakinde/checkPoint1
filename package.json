@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"webpack -p && node server.js",
     "dev": "webpack-dev-server --content-base public --inline --hot",
     "test": "nyc --reporter=html --reporter=text mocha -r mock-local-storage --compilers js:babel-register -r ./test/test_helper.js --recursive",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
