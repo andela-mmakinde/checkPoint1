@@ -1,8 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
 import * as Actions from '../../src/js/actions/naijActions';
-import * as apiCalls from '../../src/js/api';
-import * as Dispatcher from '../../src/js/dispatcher';
 
 
 describe('Actions', () => {

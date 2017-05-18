@@ -24,12 +24,9 @@ export default class Sources extends React.Component {
     this.filterSources = this.filterSources.bind(this);
   }
 
-  componentWillMount() {
-    sourceStore.on('change', this.getSourceList);
-  }
-
   componentDidMount() {
     Actions.fetchSources();
+    sourceStore.on('change', this.getSourceList);
   }
   // componentWillUnMount - Runs when component is changed
   componentWillUnmount() {

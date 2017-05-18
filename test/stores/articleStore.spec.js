@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import apiResponseArticle from '../mockData';
 import Store from '../../src/js/stores/articleStore';
 import { EventEmitter } from 'events';
