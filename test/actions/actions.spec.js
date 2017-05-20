@@ -15,20 +15,4 @@ describe('Actions', () => {
   it('should should have a function getArticles', () => {
     expect(Actions.getArticles).to.exist;
   });
-
-  it('Should get the news source event when called', () => {
-  Actions.fetchSources();
-    expect(dispatcher, {
-      type: 'FETCH_SOURCES',
-      data: 'result',
-    });
-  });
-
-  it('Should get the articles event when called', () => {
-  Actions.getArticles();
-    expect(dispatcher, {
-      type: 'GET_ARTICLES',
-      data: 'result',
-    });
-  });
 });

@@ -13,17 +13,21 @@ export const responseGoogle = (response) => {
 
 const Id = process.env.clientId;
 
-export const login = (
-  <GoogleLogin
-    clientId={Id}
-    onSuccess={responseGoogle}
-    tag="span"
-    disabled="false"
-    className="navig"
-  >
-    <span className="google"><img src="images/google6.png" alt="googleSignIn" className="googleimg" /><span className="login">Login</span></span>
-  </GoogleLogin>
-);
+export const login = () => {
+  return (
+    <GoogleLogin
+      clientId={Id}
+      onSuccess={responseGoogle}
+      tag="span"
+      disabled="false"
+      className="navig"
+    >
+      <div className="google"><img src="images/google6.png" alt="googleSignIn" className="googleimg" />
+        <span className="login">Login</span>
+      </div>
+    </GoogleLogin>
+  );
+};
 
 export const logout = (evt) => {
   evt.preventDefault();

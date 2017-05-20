@@ -9,7 +9,7 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const show = localStorage.user ? auth.out : auth.login;
+    const show = localStorage.user ? auth.out : auth.login();
 
     return (
       <header className="header">

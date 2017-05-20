@@ -1,8 +1,10 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import * as Actions from '../actions/naijActions';
+import getArticles from '../actions/articleActions';
 import Card from './ArticleCard';
+import * as auth from '../auth';
 import articleStore from '../stores/articleStore';
+
 
 export default class Articles extends React.Component {
   constructor() {
@@ -18,7 +20,7 @@ export default class Articles extends React.Component {
 // componentDidMount - Runs when component is loaded
   componentDidMount() {
     articleStore.on('change', this.setArticlesList);
-    Actions.getArticles(this.props.match.params.sourceId);
+    getArticles(this.props.match.params.sourceId);
   }
 
   componentWillUnmount() {
@@ -32,7 +34,7 @@ export default class Articles extends React.Component {
   }
 
   sortArticle(evt) {
-    Actions.getArticles(this.props.match.params.sourceId, evt.target.value);
+    getArticles(this.props.match.params.sourceId, evt.target.value);
   }
 
   sortArticleButton() {
@@ -73,7 +75,7 @@ export default class Articles extends React.Component {
           <MuiThemeProvider>
             <div>
               <div>{this.sortArticleButton()}</div>
-              <div>{articleNodes}</div>
+              {articleNodes}
             </div>
           </MuiThemeProvider>
         </div>
@@ -81,6 +83,8 @@ export default class Articles extends React.Component {
       }
       return (<div> Loading... </div>);
     }
-    return (<div className="loggedOut">Please login to view</div>);
+    return (<div>
+      <div className="loggedOut">Please sign in to view</div>
+    </div>);
   }
 }

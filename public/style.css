@@ -33,10 +33,6 @@ a {
   .nav:hover {
     color: #aaaaaa; }
 
-.articles {
-  margin: 40px 300px !important;
-  width: 50% !important; }
-
 .button {
   float: right;
   padding: 5px;
@@ -102,4 +98,11 @@ a {
   text-align: center;
   margin-top: 150px; }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3N0eWxlLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/
+.floating-box {
+  display: inline-block;
+  width: 340px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  margin-right: 30px; }
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzdHlsZS5jc3MiLCJzb3VyY2VSb290IjoiIn0=*/

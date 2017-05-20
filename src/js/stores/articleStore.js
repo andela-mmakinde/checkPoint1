@@ -30,11 +30,11 @@ class ArticleStore extends EventEmitter {
 
   handleActions(action) {
     if (action.type === 'GET_ARTICLES') {
-      if (action.err) {
-        this.articles = [];
-      } else {
-        this.articles = action.articles;
-      }
+      this.articles = action.articles;
+      this.emit('change');
+    }
+    if (action.type === 'ERROR') {
+      this.articles = [];
       this.emit('change');
     }
   }

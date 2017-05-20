@@ -2,7 +2,7 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { GridList } from 'material-ui/GridList';
 import sourceStore from '../stores/sourceStore';
-import * as Actions from '../actions/naijActions';
+import fetchSources from '../actions/sourceActions';
 import Card from './SourceCard';
 
 const styles = {
@@ -22,7 +22,7 @@ export default class Sources extends React.Component {
   }
 
   componentDidMount() {
-    Actions.fetchSources();
+    fetchSources();
     sourceStore.on('change', this.getSourceList);
   }
   // componentWillUnMount - Runs when component is changed
