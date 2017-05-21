@@ -9,7 +9,7 @@ const card = ({ source }) => (
     />
     <CardActions>
       <div className="button">
-        <a href={`#/articles/${source.id}`}>Get Articles</a>
+        <a href={`#/articles/${source.id}/${source.sortBysAvailable}`}>Get Articles</a>
       </div>
     </CardActions>
   </Card>

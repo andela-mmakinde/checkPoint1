@@ -1,9 +1,15 @@
 import dispatcher from '../dispatcher';
-import * as apiCalls from '../api';
+import * as apiCalls from '../utils/api';
 
 /**
- * This function fetches news headlines from the api.
+ * @function getArticles
+ * This function call the apiCalls method,
+ * returns the news articles and
+ * dispatch action to the store
+ * @param {string} sourceId - The news source
+ * @param {string} sortBy - The news filter
  */
+
 const getArticles = (sourceId, sortBy) => {
   const availableArticles = apiCalls.articles(sourceId, sortBy);
   availableArticles.then((response) => {

@@ -11,7 +11,7 @@ const Routes = () => (
     <HashRouter>
       <Switch>
         <Route exact path="/" component={Sources} />
-        <Route path="/articles/:sourceId" component={Articles} />
+        <Route path="/articles/:sourceId/:sorts" component={Articles} />
         <Route render={() => <h1>Page not found</h1>} />
       </Switch>
     </HashRouter >

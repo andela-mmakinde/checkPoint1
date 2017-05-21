@@ -1,10 +1,14 @@
 import dispatcher from '../dispatcher';
-import * as apiCalls from '../api';
+import * as apiCalls from '../utils/api';
 
 /**
- * This function fetches news sources from the api
+ * @function getSources
+ * This function call the api method
+ * returns the news sources and
+ * dispatch action to the store
  */
-const fetchSources = () => {
+
+const getSources = () => {
   const availableSources = apiCalls.sources();
   availableSources.then((response) => {
     dispatcher.dispatch({
@@ -13,4 +17,4 @@ const fetchSources = () => {
     });
   });
 };
-export default fetchSources;
+export default getSources;

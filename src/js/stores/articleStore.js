@@ -2,9 +2,8 @@ import { EventEmitter } from 'events';
 import dispatcher from '../dispatcher';
 
 /**
- * This is the store for news articles, it is registered to the dispatcher,
- * and receives a payload from the dispatcher which it makes available to the components
- * Articles.jsx
+ * Holds the storage, listen to actions and update the stores
+ * @class ArticleStore
  */
 
 class ArticleStore extends EventEmitter {
@@ -14,19 +13,21 @@ class ArticleStore extends EventEmitter {
     this.handleActions = this.handleActions.bind(this);
   }
 
-/**
- * This function returns the news articles.
- */
+  /**
+   * @method getArticles
+   * @return articles - The articles stored in the constructor
+   */
 
   getArticles() {
     return this.articles;
   }
 
-/**
- * This function specifies which payload to receive
- * from the dispatcher.
- * @param {object} action
- */
+
+  /**
+   * Receives actions and update the stores accordingly
+   * @method handleActions
+   * @param {object} - Action type and data
+   */
 
   handleActions(action) {
     if (action.type === 'GET_ARTICLES') {

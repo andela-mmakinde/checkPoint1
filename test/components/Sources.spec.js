@@ -3,11 +3,10 @@ import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { GridList } from 'material-ui/GridList';
 import Sources from '../../src/js/components/Sources';
-import Actions from '../../src/js/actions/naijActions';
 
 
 
-describe('The component Sources', () => {
+describe('The Source component', () => {
 
   it('renders without exploding', () => {
     expect(shallow(<Sources />).length).to.eql(1);

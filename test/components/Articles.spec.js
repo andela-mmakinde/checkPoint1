@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Articles from '../../src/js/components/Articles';
 
 
-describe('The component Articles', () => {
+describe('The Articles component ', () => {
   const state = {
     articles: [],
   };

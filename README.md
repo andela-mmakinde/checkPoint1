@@ -24,6 +24,9 @@ Enzyme.
 ### User Guide
 
 * Visit  https://naijnews.herokuapp.com to use this app.
+* When the app has started, a list of sources available to view news articles from is displayed.
+* Users would be required to login to read news articles based on the sources listed.
+* Users can sort the article based on the sort parameters provided on the top-left corner of page.
 
 ### How To Contribute
 
