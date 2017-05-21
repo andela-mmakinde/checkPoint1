@@ -75,12 +75,14 @@ export default class Header extends React.Component {
       <a className="nav" href="" onClick={this.logout}>Logout</a>
     );
     const show = localStorage.user ? out : this.login();
-
+    const link = <a className="nav" href={'/'}>Sources</a>;
+    const showNothing = <div />;
+    const sourceLink = localStorage.user ? link : showNothing;
     return (
       <header className="header">
         <h1><a className="head" href={'/'}>NewsApp!</a></h1>
         <h5 className="navig">
-          <a className="nav" href={'/'}>Sources</a>
+          {sourceLink}
           {show}
         </h5>
       </header>
