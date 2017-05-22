@@ -13,7 +13,7 @@ describe('The Articles component ', () => {
   };
 
   it('renders as a <div>', () => {
-    const wrapper = shallow(<Articles {...options} />);
+    const wrapper = shallow(<Articles />);
     expect(wrapper.type()).to.eql('div');
   });
 
