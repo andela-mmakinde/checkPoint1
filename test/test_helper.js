@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-const apiArticleResponse = {
+export const apiArticleResponse = {
   status: 'ok',
   source: 'techcrunch',
   sortBy: 'top',
@@ -17,7 +17,7 @@ const apiArticleResponse = {
   ],
 };
 
-const apiSourceReponse = {
+export const apiSourceResponse = {
   status: 'ok',
   sources: [
     {

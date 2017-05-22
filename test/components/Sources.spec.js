@@ -26,12 +26,6 @@ const options = {
     expect(wrapper.type()).to.eql('div');
   });
 
-  it('contains a render method', () => {
-    const wrapper = mount(<Sources {...options} />);
-    console.log(wrapper)
-    // expect(wrapper.instance().render()).to.be.defined;
-  });
-
   it('has style to render it as grid', () => {
     const wrapper = shallow(<Sources />);
     const gridList = { height: 'auto' };
@@ -48,5 +42,10 @@ const options = {
     const wrapper = shallow(<Sources />);
     wrapper.instance().filterSources;
     wrapper.instance().getSourceList;
+  });
+
+  it('contains a render method', () => {
+    const wrapper = mount(<Sources {...options} />);
+    expect(wrapper.instance().render()).to.be.defined;
   });
 });

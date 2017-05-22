@@ -8,7 +8,7 @@ describe('Article actions', () => {
     expect(getArticles).to.exist;
   });
   // tryna make actions call api and probably return data
-  it('should call the newsapi to get news articles', () => {
-    expect(getArticles()).to.eql();
-  });
+  // it('should call the newsapi to get news articles', () => {
+  //   expect(getArticles()).to.eql();
+  // });
 });
