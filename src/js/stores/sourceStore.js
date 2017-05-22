@@ -33,6 +33,10 @@ class SourceStore extends EventEmitter {
       this.sources = action.sources;
       this.emit('change');
     }
+    if (action.type === 'ERROR') {
+      this.sources = [];
+      this.emit('change');
+    }
   }
 }
 

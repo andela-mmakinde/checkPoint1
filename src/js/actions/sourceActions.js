@@ -15,6 +15,12 @@ const getSources = () => {
       type: 'FETCH_SOURCES',
       sources: response.data.sources,
     });
+  }).catch((err) => {
+    dispatcher.dispatch({
+      type: 'ERROR',
+      err,
+    });
   });
 };
+
 export default getSources;

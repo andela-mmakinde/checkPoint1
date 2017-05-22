@@ -11,7 +11,7 @@ export default class Header extends React.Component {
     this.state = {};
     this.responseGoogle = this.responseGoogle.bind(this);
     this.login = this.login.bind(this);
-    this.logout= this.logout.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   /**
@@ -21,12 +21,12 @@ export default class Header extends React.Component {
    */
 
   responseGoogle(response) {
-    const profile = response.getBasicProfile();
-    const user = {};
-    user.username = profile.getName();
-    user.email = profile.getEmail();
-    user.image = profile.getImageUrl();
-    localStorage.setItem('user', JSON.stringify(user));
+    this.profile = response.getBasicProfile();
+    this.user = {};
+    this.user.username = this.profile.getName();
+    this.user.email = this.profile.getEmail();
+    this.user.image = this.profile.getImageUrl();
+    localStorage.setItem('user', JSON.stringify(this.user));
     location.reload();
   }
 

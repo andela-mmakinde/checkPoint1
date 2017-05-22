@@ -59,6 +59,6 @@ Enzyme.
 
 ## Author
 
-**Mayowa Makinde**
-(https://www.linkedin.com/in/makinde-mayowa-650b148b).
+**Mayowa Makinde**  [Contact](https://www.linkedin.com/in/makinde-mayowa-650b148b)
+
 

@@ -66,7 +66,7 @@ export default class Articles extends React.Component {
     const sortOptions = this.props.match.params.sorts.split(',');
     return (
       <form className="sort">
-        <label>Sort articles by: </label>
+        <span>Sort articles by: </span>
         { sortOptions.map((sortType) => {
           return (
             <span key={sortType}>
@@ -96,10 +96,7 @@ export default class Articles extends React.Component {
           articleNodes = this.state.articles.map(article => (
             <Card article={article} key={article.url} />
           ));
-        } else {
-          articleNodes = (<div className="articles"> No articles found </div>);
-        }
-
+        } else { return (<div> Loading... </div>); }
         return (<div className="mainBody">
           <MuiThemeProvider>
             <div>
@@ -110,7 +107,6 @@ export default class Articles extends React.Component {
         </div>
         );
       }
-      return (<div> Loading... </div>);
     }
     return (<div>
       <div className="loggedOut">Please sign in to view</div>

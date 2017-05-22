@@ -7,9 +7,9 @@ export function sources() {
 }
 
 export function articles(sourceId, sortBy) {
+  sortBy = sortBy || 'top';
   return axios.get(
-    `https://newsapi.org/v1/articles?source=${sourceId}&
-    sortBy=${sortBy}&apiKey=${apiKey}`,
+    `https://newsapi.org/v1/articles?source=${sourceId}&sortBy=${sortBy}&apiKey=${apiKey}`,
     );
 }
 
