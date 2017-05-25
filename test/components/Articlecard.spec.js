@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { Card, CardActions, CardMedia } from 'material-ui/Card';
 import ArticleCard from '../../src/js/components/ArticleCard';
 
-describe('Test for <ArticleCard /> components', () => {
+describe('The article card component', () => {
   const article = {
     article: { urlToImage: 'me.jpg', author: 'foo', title: 'bar', description: 'foobar' },
   };
@@ -19,4 +19,8 @@ describe('Test for <ArticleCard /> components', () => {
     const wrapper = shallow(<ArticleCard {...article} />);
     expect(wrapper.find(CardActions)).to.have.length(1);
   });
+  // it('has a function ellipsis that sets the length of text', () => {
+  //   const wrapper = shallow(<ArticleCard {...article} />);
+  //   expect(wrapper.find(CardActions)).to.have.length(1);
+  // });
 });

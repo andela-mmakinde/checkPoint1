@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getArticles from '../actions/articleActions';
 import Card from './ArticleCard';
 import articleStore from '../stores/articleStore';
+import { login } from './GoogleLogin';
 
 /**
  * Create a react component
@@ -110,6 +111,7 @@ export default class Articles extends React.Component {
     }
     return (<div>
       <div className="loggedOut">Please sign in to view</div>
+      <div className="signInToView">{login}</div>
     </div>);
   }
 }

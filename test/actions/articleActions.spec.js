@@ -1,14 +1,19 @@
 import React from 'react';
+import axios from 'axios';
 import { expect } from 'chai';
 import getArticles from '../../src/js/actions/articleActions';
 import Dispatcher from '../../src/js/dispatcher';
+import * as api from '../test_helper';
 
-describe('Article actions', () => {
-  it('should have a function getArticles', () => {
-    expect(getArticles).to.exist;
+const dispatcher = sinon.spy(Dispatcher, 'dispatch');
+const response = api.apiArticleResponse;
+const headlineRes = api.headlineApi;
+
+
+describe('getArticles action', () => {
+  it('should be a function', () => {
+    expect(getArticles).to.be.a('function');
   });
-  // tryna make actions call api and probably return data
-  // it('should call the newsapi to get news articles', () => {
-  //   expect(getArticles()).to.eql();
-  // });
 });
+
+

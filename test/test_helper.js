@@ -40,5 +40,31 @@ export const apiSourceResponse = {
   ],
 };
 
+export const user = { username: 'kayode', email: 'kay@laru.com', image: 'https/img.com' };
+
+const setItem = () => {
+
+}
+
+const removeItem = () => {
+
+};
+
+const getItem = () => {
+
+}
+
+
+
+
 global.expect = expect;
 global.sinon = sinon;
+
+
+
+const user = {};
+user.username = profile.getName();
+user.email = profile.getEmail();
+user.image = profile.getImageUrl();
+localStorage.setItem('user', JSON.stringify(user));
+location.reload();
