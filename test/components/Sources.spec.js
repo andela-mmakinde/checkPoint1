@@ -1,6 +1,7 @@
 import React from 'react';
+import 'jsdom-global/register';
+import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
 import { GridList } from 'material-ui/GridList';
 import Sources from '../../src/js/components/Sources';
 
@@ -9,9 +10,10 @@ describe('The Source component', () => {
   const state = {
     sources: [],
   };
-const options = {
+  const options = {
     state: { sources: { map: ('mySource') } },
   };
+
   it('renders without exploding', () => {
     expect(shallow(<Sources />).length).to.eql(1);
   });

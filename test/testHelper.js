@@ -1,6 +1,3 @@
-import { expect } from 'chai';
-import sinon from 'sinon';
-
 export const apiArticleResponse = {
   status: 'ok',
   source: 'techcrunch',
@@ -40,28 +37,4 @@ export const apiSourceResponse = {
   ],
 };
 
-// export const userData = { username: 'kayode', email: 'kay@laru.com', image: 'https/img.com' };
 
-// const setItem = () => {
-
-// };
-
-// const removeItem = () => {
-
-// };
-
-// const getItem = () => {
-
-// };
-
-
-global.expect = expect;
-global.sinon = sinon;
-
-
-// const user = {};
-// user.username = profile.getName();
-// user.email = profile.getEmail();
-// user.image = profile.getImageUrl();
-// localStorage.setItem('user', JSON.stringify(user));
-// location.reload();

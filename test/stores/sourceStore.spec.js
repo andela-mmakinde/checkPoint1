@@ -1,4 +1,4 @@
-import React from 'react';
+import { expect } from 'chai';
 import { EventEmitter } from 'events';
 import Store from '../../src/js/stores/sourceStore';
 import dispatcher from '../../src/js/dispatcher';

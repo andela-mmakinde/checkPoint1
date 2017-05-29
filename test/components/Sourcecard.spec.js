@@ -1,4 +1,5 @@
 import React from 'react';
+import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Card, CardActions, CardHeader } from 'material-ui/Card';
 import SourceCard from '../../src/js/components/SourceCard';

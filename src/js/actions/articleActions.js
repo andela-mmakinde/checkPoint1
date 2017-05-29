@@ -12,7 +12,7 @@ import * as apiCalls from '../utils/api';
 
 const getArticles = (sourceId, sortBy) => {
   const availableArticles = apiCalls.articles(sourceId, sortBy);
-  availableArticles.then((response) => {
+  return availableArticles.then((response) => {
     dispatcher.dispatch({
       type: 'GET_ARTICLES',
       articles: response.data.articles,

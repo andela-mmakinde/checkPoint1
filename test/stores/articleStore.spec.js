@@ -1,9 +1,10 @@
+import { expect } from 'chai';
 import articleStore from '../../src/js/stores/articleStore';
 import dispatcher from '../../src/js/dispatcher';
 import { apiArticleResponse } from '../testHelper';
 
 describe('Articles Store', () => {
-  it('should have a handleActions function', () => {
+  it('should have a handleActions method', () => {
     expect(articleStore.handleActions).to.be.a('function');
   });
 
