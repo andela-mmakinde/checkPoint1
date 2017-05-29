@@ -2,7 +2,7 @@ import React from 'react';
 import { EventEmitter } from 'events';
 import Store from '../../src/js/stores/sourceStore';
 import dispatcher from '../../src/js/dispatcher';
-import { apiSourceResponse } from '../test_helper';
+import { apiSourceResponse } from '../testHelper';
 
 
 describe('Source Store', () => {

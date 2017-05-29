@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route, HashRouter } from 'react-router-dom';
-import Header from './components/Header';
-import Articles from './components/Articles';
-import Sources from './components/Sources';
+import Header from './components/Header.jsx';
+import Articles from './components/Articles.jsx';
+import Sources from './components/Sources.jsx';
 
 
 const Routes = () => (

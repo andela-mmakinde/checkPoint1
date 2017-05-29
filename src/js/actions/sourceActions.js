@@ -3,9 +3,10 @@ import * as apiCalls from '../utils/api';
 
 /**
  * @function getSources
- * This function call the api method
+ * This function calls the api method
  * returns the news sources and
- * dispatch action to the store
+ * dispatches api response to the dispatcher.
+ * @returns {object} a dispatcher object.
  */
 
 const getSources = () => {
