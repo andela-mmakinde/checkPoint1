@@ -1,18 +1,16 @@
 import React from 'react';
+import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import Articles from '../../src/js/components/Articles';
 
 
-describe('The component Articles', () => {
+describe('The Articles component ', () => {
   const state = {
     articles: [],
   };
 
   it('renders as a <div>', () => {
-    const options = {
-      match: { params: { sourceId: 'mySource' } },
-    };
-    const wrapper = shallow(<Articles {...options} />);
+    const wrapper = shallow(<Articles />);
     expect(wrapper.type()).to.eql('div');
   });
 

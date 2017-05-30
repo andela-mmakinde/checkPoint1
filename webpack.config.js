@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
-  devtool: debug ? 'inline-sourcemap' : null,
+  devtool: 'source-map'
   entry: './js/scripts.js',
   module: {
     loaders: [
@@ -38,11 +38,12 @@ module.exports = {
     filename: 'scripts.min.js',
   },
   plugins: debug ? [
-    new ExtractTextPlugin('./style.css'),
+    new ExtractTextPlugin('style.css'),
     new Dotenv({
       path: './.env',
     }),
   ] : [
+    new ExtractTextPlugin('style.css'),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),

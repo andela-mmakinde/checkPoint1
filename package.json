@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base public --inline --hot",
-    "test": "nyc --reporter=html --reporter=text mocha -r mock-local-storage --compilers js:babel-register -r ./test/test_helper.js --recursive",
+    "test": "nyc --extension .jsx --reporter=html --reporter=text mocha -r mock-local-storage --compilers js:babel-register -r ./test/testHelper.js --recursive",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test:watch": "npm test -- --watch"
   },
@@ -33,7 +33,7 @@
     "react-router-dom": "^4.1.1",
     "react-search": "^2.0.5",
     "react-tap-event-plugin": "^2.0.1",
-    "router": "^1.3.0",   
+    "router": "^1.3.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
     "webpack": "^2.4.1",

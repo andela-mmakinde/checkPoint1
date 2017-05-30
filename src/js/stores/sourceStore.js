@@ -2,9 +2,8 @@ import { EventEmitter } from 'events';
 import dispatcher from '../dispatcher';
 
 /**
- * This is the store for newsSources, it is registered to the dispatcher,
- * and receives a payload from the dispatcher which it makes available to the component
- * Sources.jsx
+ * Holds the storage, listen to actions and update the stores
+ * @class SourceStore
  */
 
 class SourceStore extends EventEmitter {
@@ -14,22 +13,28 @@ class SourceStore extends EventEmitter {
     this.handleActions = this.handleActions.bind(this);
   }
 
-/**
- * This function returns the news sources available.
- */
+  /**
+   * @method getSources
+   * @return sources - The news sources stored in the constructor
+   */
+
   getSources() {
     return this.sources;
   }
 
-/**
- * This function specifies which payload to receive
- * from the dispatcher.
- * @param {object} action
- */
+  /**
+   * Receives actions and update the stores accordingly
+   * @method handleActions
+   * @param {object} - Action type and data
+   */
 
   handleActions(action) {
     if (action.type === 'FETCH_SOURCES') {
       this.sources = action.sources;
+      this.emit('change');
+    }
+    if (action.type === 'ERROR') {
+      this.sources = [];
       this.emit('change');
     }
   }
