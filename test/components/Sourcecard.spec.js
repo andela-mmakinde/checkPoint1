@@ -6,8 +6,8 @@ import SourceCard from '../../src/js/components/SourceCard';
 
 describe('SourceCard component ', () => {
   const options = {
-      source: { name: 'mySource' },
-    };
+    source: { name: 'mySource' },
+  };
 
   it('renders one <Card /> components', () => {
     const wrapper = shallow(<SourceCard {...options} />);

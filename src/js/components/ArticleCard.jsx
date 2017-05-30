@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardActions, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import ellipsis from '../utils/utils';
 
-const ellipsis = (text, length) => (text.length > length) ? `${text.substr(0, length - 1)}...` : text;
 const card = ({ article }) => (
   <div className="floating-box">
     <Card className="articles">

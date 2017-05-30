@@ -1,5 +1,7 @@
 import React from 'react';
+import sinon from 'sinon';
 import GoogleLogin from 'react-google-login';
+
 
 /**
  * gets user data from googlelogin and saves to localStorage
