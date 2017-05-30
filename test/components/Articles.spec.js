@@ -38,21 +38,4 @@ describe('The Articles component ', () => {
     const wrapper = shallow(<Articles />);
     wrapper.instance().sortArticleButton;
   });
-
-  // it('should return an instance of a class', () => {
-  //   const wrapper = mount(<Articles {...options} />);
-  //   const instance = wrapper.instance();
-  //   expect(instance).to.be.instanceOf(Articles);
-  // });
-
-  // it('calls componentDidMount', () => {
-  //   sinon.spy(Articles.prototype, 'componentDidMount');
-  //   const wrapper = mount(<Articles {...options} />);
-  //   expect(Articles.prototype.componentDidMount.calledOnce).to.equal(true);
-  // });
-
-  // it('contains a render method', () => {
-  //   const wrapper = mount(<Articles {...options} />);
-  //   expect(wrapper.instance().render()).to.be.defined;
-  // });
 });
