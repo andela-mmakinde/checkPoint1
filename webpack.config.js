@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
-  devtool: 'source-map'
+  devtool: 'source-map',
   entry: './js/scripts.js',
   module: {
     loaders: [
