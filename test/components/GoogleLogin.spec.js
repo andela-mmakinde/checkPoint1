@@ -19,11 +19,14 @@ describe('The function responseGoogle()', () => {
         }
       ),
     };
-    const spy = sinon.spy(location, 'reload');
+    const locationSpy = sinon.spy(location, 'reload');
+    location.reload();
+    sinon.assert.calledOnce(locationSpy);
     const expectedStorage = { user: '{"username":"mayor","email":"mail","image":"image"}' };
+    expect(locationSpy.calledOnce).to.be.true;
     responseGoogle(profile);
-    expect(spy.calledOnce).to.be.true;
     expect(localStorage).to.eqls(expectedStorage);
+    locationSpy.restore();
   });
   describe('The function logout()', () => {
     it('contains a method preventDefault that initializes when logout() is called', () => {
@@ -35,3 +38,4 @@ describe('The function responseGoogle()', () => {
     });
   });
 });
+
