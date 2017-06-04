@@ -8,9 +8,10 @@ import { Login } from './GoogleLogin.jsx';
 
 /**
  * Create a react component
- * @class Article
+ * @export
+ * @class Articles
+ * @extends {React.Component}
  */
-
 export default class Articles extends React.Component {
   constructor(props) {
     super(props);
@@ -23,76 +24,88 @@ export default class Articles extends React.Component {
   }
 
   /**
-   * Add an event Listener to the Articles Store and fires when the component is fully mounted
    * @method componentDidMount
-   * @returns {event} - register event
+   * Adds an event Listener to the Articles Store and fires when the component is fully mounted.
+   *
+   * @returns {void}
+   * @memberOf Articles
    */
-
   componentDidMount() {
     articleStore.on('change', this.setArticlesList);
     getArticles(this.props.match.params.sourceId);
   }
 
-/**
-   * Remove event listener from the Articles store
+  /**
    * @method componentWilUnMount
-   * @return {event} - removes event
+   * Removes event listener from the Articles store.
+   *
+   * @return {void}
+   * @memberOf Articles
    */
-
   componentWillUnmount() {
     articleStore.removeListener('change', this.setArticlesList);
   }
 
   /**
-   * gets the list of news Articles and sets the state
    * @method setArticlesList
-   * @return {state} - Set Articles to the state
+   * gets the list of news Articles and sets the state.
+   *
+   * @return {void}
+   * @memberOf Articles
    */
-
   setArticlesList() {
     this.setState({
       articles: articleStore.getArticles(),
     });
   }
 
- /**
-   * calls an action getArticles on selecting the sort parameter
+  /**
    * @method sortArticle
-   * @param evt
+   * calls an action getArticles on selecting the sort parameter
+   *
+   * @param {any} evt
+   * @memberOf Articles
    */
   sortArticle(evt) {
     getArticles(this.props.match.params.sourceId, evt.target.value);
   }
 
- /**
-   * maps the available sort parameters into an input tag
+  /**
    * @method sortArticleButton
-   * @return {input} - radio button for sort parameters available
+   * maps the available sort parameters into an input tag.
+   *
+   * @return {void}
+   * @memberOf Articles
    */
   sortArticleButton() {
     const sortOptions = this.props.match.params.sorts.split(',');
     return (
       <form className="sort">
         <span>Sort articles by: </span>
-        { sortOptions.map((sortType) => {
-          return (
-            <span key={sortType}>
-              <input
-                type="radio" name="sort" value={sortType} className="radio"
-                onClick={this.sortArticle}
-              />{sortType.toLowerCase()}</span>
-          );
-        },
-          )}
-      </form>);
+        {sortOptions.map(sortType => (
+          <span key={sortType}>
+            <input
+              type="radio"
+              name="sort"
+              value={sortType}
+              className="radio"
+              onClick={this.sortArticle}
+            />
+            {sortType.toLowerCase()}
+          </span>
+          ))}
+      </form>
+    );
   }
 
- /**
-   * Render react component
+  /**
    * @method render
-   * @return {function} react-component
+   * Render react component
+   *
+   * @memberOf Articles
+   * @returns {void}
+   * @memberOf Articles
    */
-
   render() {
     // check if a users details are present in the local storage.
     if (localStorage.user) {
@@ -103,30 +116,37 @@ export default class Articles extends React.Component {
           articleNodes = this.state.articles.map(article => (
             <Card article={article} key={article.url} />
           ));
-        } else { return (<div> Loading... </div>); }
-        return (<div className="mainBody">
-          <MuiThemeProvider>
-            <div>
-              <div>{this.sortArticleButton()}</div>
-              {articleNodes}
-            </div>
-          </MuiThemeProvider>
-        </div>
+        } else {
+          return <div> Loading... </div>;
+        }
+        return (
+          <div className="mainBody">
+            <MuiThemeProvider>
+              <div>
+                <div>{this.sortArticleButton()}</div>
+                {articleNodes}
+              </div>
+            </MuiThemeProvider>
+          </div>
         );
       }
     }
-    return (<div>
-      <div className="loggedOut">Please sign in to view</div>
-      <div className="signInToView">
-        { Login }
+    return (
+      <div>
+        <div className="loggedOut">Please sign in to view</div>
+        <div className="signInToView">
+          {Login}
+        </div>
       </div>
-    </div>);
+    );
   }
 }
 
-Articles.propTypes = {
-  match: PropTypes.object,
-};
 Articles.defaultProps = {
   match: null,
+};
+Articles.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.object,
+  }),
 };

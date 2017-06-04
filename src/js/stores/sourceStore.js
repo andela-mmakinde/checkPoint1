@@ -2,11 +2,12 @@ import { EventEmitter } from 'events';
 import dispatcher from '../dispatcher';
 
 /**
- * Holds the storage, listen to actions and update the stores
  * @class SourceStore
+ * Holds the storage, listen to actions and update the stores
+ *
+ * @extends {EventEmitter}
  */
-
-class SourceStore extends EventEmitter {
+export class SourceStore extends EventEmitter {
   constructor() {
     super();
     this.sources = [];
@@ -15,19 +16,21 @@ class SourceStore extends EventEmitter {
 
   /**
    * @method getSources
-   * @return sources - The news sources stored in the constructor
+   * @returns {void}
+   * @memberOf SourceStore
    */
-
   getSources() {
     return this.sources;
   }
 
   /**
-   * Receives actions and update the stores accordingly
    * @method handleActions
-   * @param {object} - Action type and data
+   * Receives actions and update the stores accordingly
+   *
+   * @param {any} action
+   * @returns {void}
+   * @memberOf SourceStore
    */
-
   handleActions(action) {
     if (action.type === 'FETCH_SOURCES') {
       this.sources = action.sources;

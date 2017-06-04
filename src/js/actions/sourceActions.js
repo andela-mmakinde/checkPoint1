@@ -3,15 +3,14 @@ import * as apiCalls from '../utils/api';
 
 /**
  * @function getSources
- * This function calls the api method
+ * This function calls the api method,
  * returns the news sources and
  * dispatches api response to the dispatcher.
- * @returns {object} a dispatcher object.
+ * @returns {Void}
  */
-
 const getSources = () => {
   const availableSources = apiCalls.sources();
-  availableSources.then((response) => {
+  return availableSources.then((response) => {
     dispatcher.dispatch({
       type: 'FETCH_SOURCES',
       sources: response.data.sources,

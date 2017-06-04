@@ -2,22 +2,21 @@ import React from 'react';
 import { Login, logout } from './GoogleLogin.jsx';
 
 /**
- * Create a react component
+ * @export
  * @class Header
+ * @extends {React.Component}
  */
-
 export default class Header extends React.Component {
   constructor() {
     super();
     this.state = {};
   }
 
-/**
- * Render react component
- * @method render
- * @return {function} react-component
- */
-
+  /**
+   * @method render
+   * @returns {void}
+   * @memberOf Header
+   */
   render() {
     const out = (
       <a className="nav" href="" onClick={logout}>Logout</a>

@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardActions, CardHeader } from 'material-ui/Card';
 
+/**
+ * @param {any} { source }
+ */
 const card = ({ source }) => (
   <Card className="card">
     <CardHeader
@@ -16,11 +19,14 @@ const card = ({ source }) => (
   </Card>
   );
 
-
-card.propTypes = {
-  source: PropTypes.object,
-};
 card.defaultProps = {
   source: null,
+};
+card.propTypes = {
+  source: PropTypes.shape({
+    id: PropTypes.string,
+    description: PropTypes.string,
+    name: PropTypes.string,
+  }),
 };
 export default card;

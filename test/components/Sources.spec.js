@@ -43,7 +43,6 @@ describe('The Source component', () => {
   it('should contain a method filterSources', () => {
     const wrapper = shallow(<Sources />);
     wrapper.instance().filterSources;
-    wrapper.instance().getSourceList;
   });
 
   it('contains a render method', () => {

@@ -7,26 +7,45 @@ import * as api from '../testHelper';
 
 const response = api.apiArticleResponse;
 
-const axiosSpy = sinon.stub(axios, 'get', () => {
-  return Promise.resolve({
-    data: response,
-  });
-});
-const dispatcherSpy = sinon.spy(dispatcher, 'dispatch');
-
-describe('getArticles action', () => {
+describe('getArticles() ', () => {
   it('should be a function', () => {
     expect(getArticles).to.be.a('function');
   });
 
+  let dispatcherSpy;
+
+  before(() => {
+    dispatcherSpy = sinon.spy(dispatcher, 'dispatch');
+  });
+
+  after(() => {
+    dispatcher.dispatch.restore();
+  });
+
   it('should dispatch articles', () => {
+    const axiosSpy = sinon.stub(axios, 'get', () =>
+      Promise.resolve({
+        data: response,
+      }),
+    );
+
     getArticles().then(() => {
       expect(axiosSpy.calledOnce).to.equal(true);
-      expect(dispatcherSpy.calledOnce).to.equal(true);
-      expect(dispatcherSpy.calledWith({
+
+      axios.get.restore();
+    });
+  });
+
+  it('should have an action type GET_ARTICLES ', () => {
+    expect(
+      dispatcherSpy.calledWith({
         type: 'GET_ARTICLES',
         articles: response.articles,
-      })).to.equal(true);
-    });
+      }),
+    ).to.equal(true);
+  });
+
+  it('should call the dispatcher once', () => {
+    expect(dispatcherSpy.calledOnce).to.equal(true);
   });
 });

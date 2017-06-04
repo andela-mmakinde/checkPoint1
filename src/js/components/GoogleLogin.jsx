@@ -1,14 +1,14 @@
 import React from 'react';
-import sinon from 'sinon';
 import GoogleLogin from 'react-google-login';
 
 
 /**
- * gets user data from googlelogin and saves to localStorage
  * @method responseGoogle
- * @return {object} - Set profile to local storage
+ * gets user data from googlelogin and saves to localStorage
+ *
+ * @export
+ * @param {any} response
  */
-
 export function responseGoogle(response) {
   const profile = response.getBasicProfile();
   const user = {};
@@ -21,12 +21,7 @@ export function responseGoogle(response) {
 
 const Id = process.env.clientId;
 
-/**
- * gets user data from google profile
- * @method login
- * @return {object} - user data
- */
-
+// Google Login button to get user data from Google+
 export const Login =
   (<GoogleLogin
     clientId={Id}
@@ -41,10 +36,12 @@ export const Login =
   </GoogleLogin>);
 
 /**
- * deletes user data from localStorage
  * @method logout
+ * deletes user data from localStorage
+ *
+ * @export
+ * @param {any} evt
  */
-
 export function logout(evt) {
   evt.preventDefault();
   localStorage.removeItem('user');

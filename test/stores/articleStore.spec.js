@@ -1,11 +1,17 @@
 import { expect } from 'chai';
-import articleStore from '../../src/js/stores/articleStore';
+import articleStore, { ArticleStore } from '../../src/js/stores/articleStore';
 import dispatcher from '../../src/js/dispatcher';
 import { apiArticleResponse } from '../testHelper';
 
 describe('Articles Store', () => {
   it('should have a handleActions method', () => {
     expect(articleStore.handleActions).to.be.a('function');
+  });
+
+  it('should return an empty array if no action is dispatched', () => {
+    const newArticleStore = new ArticleStore();
+    dispatcher.register(newArticleStore.handleActions.bind(newArticleStore));
+    expect(newArticleStore.getArticles()).to.eql([]);
   });
 
   it('should receive news Articles from dispatcher', () => {
