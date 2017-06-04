@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardActions, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import { Card,
+  CardActions,
+  CardMedia,
+  CardTitle,
+  CardText } from 'material-ui/Card';
 import ellipsis from '../utils/utils';
 
+/**
+ * @param {any} { article }
+ */
 const card = ({ article }) => (
   <div className="floating-box">
     <Card className="articles">
@@ -25,11 +32,14 @@ const card = ({ article }) => (
   </div>
 );
 
-
-card.propTypes = {
-  article: PropTypes.object,
-};
 card.defaultProps = {
   article: null,
 };
+card.propTypes = {
+  article: PropTypes.shape({
+    urlToImage: PropTypes.string,
+    title: PropTypes.string,
+  }),
+};
+
 export default card;

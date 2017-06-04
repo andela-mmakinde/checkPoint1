@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
-import { responseGoogle, logout } from '../../src/js/components/GoogleLogin.jsx';
+import { responseGoogle, logout } from '../../src/js/components/GoogleLogin';
 
 describe('The function responseGoogle()', () => {
   it('should store user data in the local storage', () => {

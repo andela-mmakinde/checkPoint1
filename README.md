@@ -28,6 +28,15 @@ Enzyme.
 * Users would be required to login to read news articles based on the sources listed.
 * Users can sort the article based on the sort parameters provided on the top-left corner of page.
 
+### Local Setup
+
+- Clone the project from repository 
+  https://github.com/andela-mmakinde/checkPoint1.git
+- In your terminal, cd into the cloned folder and run 'npm install'. This 
+installs all the app's dependencies.
+- Run npm run dev, open browser, and type 'localhost:8080'. This runs the 
+application on your localhost.
+
 ### How To Contribute
 
 * Fork this repository and clone the repository.

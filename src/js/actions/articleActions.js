@@ -3,13 +3,14 @@ import * as apiCalls from '../utils/api';
 
 /**
  * @function getArticles
- * This function call the apiCalls method,
+ * This function calls the apiCalls method,
  * returns the news articles and
  * dispatches api response to the dispatcher.
- * @param {string} sourceId - The news source
- * @param {string} sortBy - The sort option for the news Article.
+ *
+ * @param {string} sourceId
+ * @param {string} sortBy
+ * @returns {Void}
  */
-
 const getArticles = (sourceId, sortBy) => {
   const availableArticles = apiCalls.articles(sourceId, sortBy);
   return availableArticles.then((response) => {

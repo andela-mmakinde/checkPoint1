@@ -12,10 +12,12 @@ const styles = {
 };
 
 /**
- * Create a react component
  * @class Sources
+ * Create a react component
+ *
+ * @export
+ * @extends {React.Component}
  */
-
 export default class Sources extends React.Component {
   constructor() {
     super();
@@ -27,32 +29,35 @@ export default class Sources extends React.Component {
   }
 
   /**
-   * Add an event Listener to the Sources Store and fires when the component is fully mounted
    * @method componentDidMount
-   * @returns {event} - register event
+   * Add an event Listener to the Sources Store and fires when the component is fully mounted
+   *
+   * @returns {void}
+   * @memberOf Sources
    */
-
   componentDidMount() {
     getSources();
     sourceStore.on('change', this.getSourceList);
   }
 
   /**
-   * Remove event listener from the Sources store
    * @method componentWilUnMount
-   * @return {event} - removes event
+   * Remove event listener
+   *
+   * @return {void} - removes event
+   * @memberOf Sources
    */
-
   componentWillUnmount() {
     sourceStore.removeListener('change', this.getSourceList);
   }
 
   /**
-   * gets the list of news sources and set the state
    * @method getSourceList
-   * @return {state} - Set sources to the state
+   * gets the list of news sources and set the state
+   *
+   * @return {void}
+   * @memberOf Sources
    */
-
   getSourceList() {
     this.setState({
       sources: sourceStore.getSources(),
@@ -60,42 +65,50 @@ export default class Sources extends React.Component {
   }
 
   /**
-   * filterSources - Searches through available sources
-   * @param {evt}
-   * Sets the state of sources to the result
+   * @method filterSources
+   * Searches through available sources
+   *
+   * @param {any} evt
+   * @memberOf Sources
    */
-
   filterSources(evt) {
     const query = evt.target.value;
-    const filteredSources = sourceStore.getSources().filter(
-      source => source.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    const filteredSources = sourceStore
+      .getSources()
+      .filter(
+        source => source.name.toLowerCase().indexOf(query.toLowerCase()) !== -1,
+      );
     this.setState({ sources: filteredSources });
   }
 
   /**
-   * Render react component
    * @method render
-   * @return {function} react-component
+   * Render react component
+   *
+   * @returns {void}
+   * @memberOf Sources
    */
-
   render() {
-    const sourceNodes = this.state.sources.map(source =>
-      <Card source={source} key={source.id} />,
-      );
+    const sourceNodes = this.state.sources.map(source => (
+      <Card source={source} key={source.id} />
+    ));
 
     return (
       <div>
-        <input className="searchbox" type="text" placeholder="Search Sources" onChange={this.filterSources} />
+        <input
+          className="searchbox"
+          type="text"
+          placeholder="Search Sources"
+          onChange={this.filterSources}
+        />
         <MuiThemeProvider>
           <div>
-            <GridList
-              cellHeight={220}
-              style={styles.gridList}
-            >
-              { sourceNodes }
+            <GridList cellHeight={220} style={styles.gridList}>
+              {sourceNodes}
             </GridList>
           </div>
         </MuiThemeProvider>
-      </div>);
+      </div>
+    );
   }
 }

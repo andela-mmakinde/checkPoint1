@@ -24,7 +24,7 @@ describe('The article card component', () => {
     expect(wrapper.find(CardActions)).to.have.length(1);
   });
 
-  it('has a function ellipsis that sets the length of text', () => {
+  it('has a function ellipsis that ensures that the article texts are rendered properly', () => {
     expect(ellipsis(article.article.author, 20)).to.equal(article.article.author);
   });
 });
